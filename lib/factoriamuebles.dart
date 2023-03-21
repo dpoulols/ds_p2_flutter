@@ -1,15 +1,17 @@
 
+import 'FactoriaAbstracta.dart'
+import 'Mesa'
+import 'Silla'
 
 class FactoriaMuebles extends FactoriaAbstracta{
 
   @override
-  Mesa  FactoriaMuebles::obtenerMesa(Mesa  mesa) {
+  Mesa  obtenerMesa(Mesa mesa) {
   return mesa.clone();
   }
 
   @override
-
-  Silla  FactoriaMuebles::obtenerSilla(Silla  silla) {
+  Silla  obtenerSilla(Silla  silla) {
   return silla.clone();
   }
 }
