@@ -1,6 +1,9 @@
 
+import 'Mesa.dart';
+import 'Silla.dart';
+
 abstract class  FactoriaAbstracta {
     Mesa obtenerMesa(Mesa mesa);
 
-    SIlla obtenerSilla(Silla silla);
+    Silla obtenerSilla(Silla silla);
 }
