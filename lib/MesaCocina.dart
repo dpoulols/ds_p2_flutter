@@ -1,13 +1,13 @@
 import 'Mesa.dart';
 
 
-class MesaCocina{
+class MesaCocina extends Mesa{
 
-/*
-Silla clone(){
-  return new Silla(this);
+
+Mesa clone(){
+  return MesaCocina.copiaMesa(this);
 }
-*/
+
 
 String toString(){
   return "Cocina";
@@ -18,10 +18,10 @@ MesaCocina(){
 
 }
 
-/*
-SillaCocina(SillaCocina copy){
+
+MesaCocina.copiaMesa(MesaCocina copy){
 
 }
-*/
+
 
 }

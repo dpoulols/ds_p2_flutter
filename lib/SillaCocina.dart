@@ -1,13 +1,15 @@
 import 'Silla.dart';
 
 
-class SillaCocina{
+class SillaCocina extends Silla{
 
-/*
+
 Silla clone(){
-  return new Silla(this);
+
+  return SillaCocina.copiaSilla(this);
+
 }
-*/
+
 
 String toString(){
   return "Cocina";
@@ -15,13 +17,16 @@ String toString(){
 
 
 SillaCocina(){
+  
 
 }
 
-/*
-SillaCocina(SillaCocina copy){
+
+SillaCocina.copiaSilla(SillaCocina copy){
+  this.material = copy.material;
+  
 
 }
-*/
+
 
 }
