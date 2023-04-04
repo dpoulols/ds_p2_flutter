@@ -28,5 +28,9 @@ SillaCocina.copiaSilla(SillaCocina copy){
 
 }
 
+void establecerMaterial(String material){
+  this.material= material;
+}
+
 
 }

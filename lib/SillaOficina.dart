@@ -25,4 +25,8 @@ SillaOficina.copiaSilla(SillaOficina copy){
   this.material = copy.material;
 
 }
+
+void establecerMaterial(String material){
+  this.material= material;
+}
 }

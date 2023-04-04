@@ -22,6 +22,9 @@ MesaOficina(){
 MesaOficina.copiaMesa(MesaOficina copy){
 
 }
+void establecerMaterial(String material){
+  this.material= material;
+}
 
 
 }

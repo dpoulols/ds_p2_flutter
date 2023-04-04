@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ds_p2_flutter/Mesa.dart';
 import 'package:ds_p2_flutter/MesaCocina.dart';
 import 'package:ds_p2_flutter/MesaOficina.dart';
@@ -64,50 +66,85 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter2= 0;
   int _counter3= 0;
   int _counter4= 0;
+  int tope = 50;
 
+  String _tipo = "Cocina";
+  Cliente cliente= Cliente();
+  FactoriaAbstracta factoria = FactoriaMuebles();
+  Mesa mesa = MesaCocina();
+  Silla silla = SillaCocina();
 
-  void _incrementCounter1() {
+  void _cambiarTipo(){
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter1++;
+      if(_tipo == 'Cocina'){
+        _tipo= "Oficina";  
+      }else{
+        _tipo= "Cocina";
+      }
     });
   }
 
-     void _incrementCounter2() {
+  String _material = "Madera";
+
+
+  void _cambiarMaterial(){
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
+      if(_material == 'Madera'){
+        _material = "Hierro";
+      }else if(_material == 'Hierro'){
+        _material = "Plastico";
+      }else{
+        _material = "Madera";
+      }
+
+      
+    });
+  }
+
+    void _comprarMesaOficina() {
+       
+    Mesa m= factoria.obtenerMesa(mesa);
+
+    cliente.mesas.add(m);
+
+    setState(() {
+
+      _counter1++;
+      
+    });
+        
+  }
+
+   void _comprarMesaCocina() {
+
+    
+     Mesa m= factoria.obtenerMesa(mesa);
+     cliente.mesas.add(m);
+    setState(() {
       _counter2++;
     });
-     }
+     
+  }
 
-     void _incrementCounter3() {
+  void _comprarSillaOficina() {
+   
+      Silla s= factoria.obtenerSilla(silla);
+      cliente.sillas.add(s);
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter3++;
     });
-     }
+    
+  }
 
-     void _incrementCounter4() {
+  void _comprarSillaCocina() {
+    
+     Silla s= factoria.obtenerSilla(silla);
+     cliente.sillas.add(s);
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter4++;
     });
+  
+
   }
 
 
@@ -135,14 +172,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     
                    
                     ElevatedButton(
-                      child: Text('Oficina'),
-                      onPressed: () {},
+                      onPressed: _cambiarTipo,
+                      child: Text('$_tipo'),
                     ),
 
                     SizedBox(width: 100),
                     ElevatedButton(
-                      child: Text('Madera'),
-                      onPressed: () {},
+                      onPressed: _cambiarMaterial,
+                      child: Text('$_material'),
                     ),
                   ],
                 ),
@@ -165,7 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.add),
-                              onPressed: _incrementCounter1,
+                              onPressed: _comprarMesaOficina,
                             ),
                                Text(
                             '$_counter1',
@@ -188,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.add),
-                              onPressed: _incrementCounter2,
+                              onPressed: _comprarMesaCocina,
                             ),
                                Text(
                             '$_counter2',
@@ -203,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Text('Sillas de oficina',
                         style: TextStyle(fontSize: 20)),
                         Image.network(
-                          'https://www.ofisillas.es/images/product/1/large/pl_1_1_1571.jpg',
+                          'https://aulamobel.com/wp-content/uploads/2017/11/Living.jpg',
                           height: 150,
                         ),
                         Row(
@@ -211,7 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.add),
-                              onPressed: _incrementCounter3,
+                              onPressed: _comprarSillaOficina,
                             ),
                                Text(
                             '$_counter3',
@@ -234,7 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: <Widget>[
                             IconButton(
                               icon: Icon(Icons.add),
-                              onPressed: _incrementCounter4
+                              onPressed: _comprarSillaCocina,
                             ),
                             Text(
                             '$_counter4',

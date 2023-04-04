@@ -4,4 +4,5 @@ abstract class Silla{
 
   Silla clone();
   String toString();
+  void establecerMaterial(String material);
 }

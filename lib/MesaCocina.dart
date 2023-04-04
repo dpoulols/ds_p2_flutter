@@ -23,5 +23,9 @@ MesaCocina.copiaMesa(MesaCocina copy){
 
 }
 
+void establecerMaterial(String material){
+  this.material= material;
+}
+
 
 }
