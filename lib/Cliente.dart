@@ -1,6 +1,6 @@
 import 'Mesa.dart';
 import 'Silla.dart';
-import 'factoriabstracta.dart';
+import 'factoria_abstracta.dart';
 
 class Cliente {
   List<Mesa> mesas =[];

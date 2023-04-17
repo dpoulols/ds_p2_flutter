@@ -1,36 +1,32 @@
 import 'Silla.dart';
 
 
-class SillaCocina extends Silla{
+class SillaOficina extends Silla{
 
 
 Silla clone(){
-
-  return SillaCocina.copiaSilla(this);
-
+  return SillaOficina.copiaSilla(this);
 }
+
 
 
 String toString(){
-  return "Cocina";
+  return "Cocina ";
 }
 
 
-SillaCocina(){
-  
+SillaOficina(){
 
 }
 
 
-SillaCocina.copiaSilla(SillaCocina copy){
+
+SillaOficina.copiaSilla(SillaOficina copy){
   this.material = copy.material;
-  
 
 }
 
 void establecerMaterial(String material){
   this.material= material;
 }
-
-
 }
