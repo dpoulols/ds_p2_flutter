@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/catalogo.dart';
 import 'package:ds_p2_flutter/catalog_screen.dart';
 
 class HomePage extends StatelessWidget {
