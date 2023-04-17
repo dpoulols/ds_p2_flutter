@@ -4,7 +4,7 @@ import 'package:ds_p2_flutter/Mesa.dart';
 import 'package:ds_p2_flutter/home_page.dart';
 import 'package:ds_p2_flutter/mesa_cocina.dart';
 //import 'package:ds_p2_flutter/MesaOficina.dart';
-import 'package:ds_p2_flutter/Silla.dart';
+import 'package:ds_p2_flutter/silla.dart';
 import 'package:ds_p2_flutter/silla_cocina.dart';
 //import 'package:ds_p2_flutter/SillaOficina.dart';
 import 'package:ds_p2_flutter/factoria_abstracta.dart';

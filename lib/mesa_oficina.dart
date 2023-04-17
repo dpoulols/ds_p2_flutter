@@ -1,5 +1,4 @@
-import 'Mesa.dart';
-
+import 'package:ds_p2_flutter/mesa.dart';
 
 class MesaOficina extends Mesa{
 

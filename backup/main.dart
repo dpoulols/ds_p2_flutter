@@ -1,8 +1,8 @@
 import 'dart:developer';
-import 'package:ds_p2_flutter/Mesa.dart';
+import 'package:ds_p2_flutter/mesa.dart';
 import 'package:ds_p2_flutter/mesa_cocina.dart';
 import 'package:ds_p2_flutter/mesa_oficina.dart';
-import 'package:ds_p2_flutter/Silla.dart';
+import 'package:ds_p2_flutter/silla.dart';
 import 'package:ds_p2_flutter/silla_cocina.dart';
 import 'package:ds_p2_flutter/silla_oficina.dart';
 import 'package:ds_p2_flutter/factoria_abstracta.dart';
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int tope = 50;
 
   String _tipo = "Cocina";
-  Cliente cliente= Cliente();
+  Cliente cliente= Cliente("Guest");
   FactoriaAbstracta factoria = FactoriaMuebles();
   Mesa mesa = MesaCocina();
   Silla silla = SillaCocina();

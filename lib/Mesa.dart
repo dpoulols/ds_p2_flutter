@@ -1,5 +1,5 @@
 abstract class Mesa{
-  String material = "madera";
+  String material = "Madera";
   Mesa clone();
   String toString();
   void establecerMaterial(String material);

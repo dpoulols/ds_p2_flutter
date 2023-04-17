@@ -1,6 +1,6 @@
 abstract class Silla{
   
-  String material = "madera";
+  String material = "Madera";
 
   Silla clone();
   String toString();
