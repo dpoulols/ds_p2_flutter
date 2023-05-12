@@ -336,7 +336,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/silla_cocina_hierro.jpg', width: 155, height: 160),
-                Text('Silla de cocina de hierro'),
+                Column(
+                  children:[
+                    Text('Silla de cocina de hierro'),
+                    ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                    ),
+                  ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -367,7 +380,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/silla_cocina_madera.jpg', width: 155, height: 160),
-                Text('Silla de cocina de madera'),
+                Column(
+                    children:[
+                      Text('Silla de cocina de madera'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -398,7 +424,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/silla_cocina_plastico.jpg', width: 155, height: 160),
-                Text('Silla de cocina de plastico'),
+                Column(
+                    children:[
+                      Text('Silla de cocina de plastico'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -429,7 +468,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/silla_oficina_hierro.jpg', width: 155, height: 160),
-                Text('Silla de oficina de hierro'),
+                Column(
+                    children:[
+                      Text('Silla de oficina de hierro'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -460,7 +512,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/silla_oficina_madera.jpg', width: 155, height: 160),
-                Text('Silla de oficina de madera'),
+                Column(
+                    children:[
+                      Text('Silla de oficina de madera'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -491,7 +556,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/silla_oficina_plastico.jpg', width: 155, height: 160),
-                Text('Silla de oficina de plastico'),
+                Column(
+                    children:[
+                      Text('Silla de oficina de plastico'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -522,7 +600,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/mesa_cocina_hierro.jpg', width: 155, height: 160),
-                Text('Mesa de cocina de hierro'),
+                Column(
+                    children:[
+                      Text('Mesa de cocina de hierro'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -553,7 +644,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/mesa_cocina_madera.jpg', width: 155, height: 160),
-                Text('Mesa de cocina de madera'),
+                Column(
+                    children:[
+                      Text('Mesa de cocina de madera'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -584,7 +688,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/mesa_cocina_plastico.jpg', width: 155, height: 160),
-                Text('Mesa de cocina de plastico'),
+                Column(
+                    children:[
+                      Text('Mesa de cocina de plastico'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -615,7 +732,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/mesa_oficina_hierro.jpg', width: 155, height: 160),
-                Text('Mesa de oficina de hierro'),
+                Column(
+                    children:[
+                      Text('Mesa de oficina de hierro'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -646,7 +776,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/mesa_cocina_madera.jpg', width: 155, height: 160),
-                Text('Mesa de oficina de madera'),
+                Column(
+                    children:[
+                      Text('Mesa de oficina de madera'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
@@ -677,7 +820,20 @@ class _CatalogScreenState extends State<CatalogScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
                 Image.asset('assets/mesa_cocina_plastico.jpg', width: 155, height: 160),
-                Text('Mesa de oficina de plastico'),
+                Column(
+                    children:[
+                      Text('Mesa de oficina de plastico'),
+                      ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          );
+                        },
+                        child: Text("Información"),
+                      ),
+                    ]
+                ),
                 Column(
                   children: [
                     ElevatedButton(
