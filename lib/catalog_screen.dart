@@ -11,8 +11,8 @@ import 'package:ds_p2_flutter/mesa_oficina.dart';
 import 'package:ds_p2_flutter/silla_oficina.dart';
 import 'package:ds_p2_flutter/silla_cocina.dart';
 
-import 'package:ds_p2_flutter/purchase_screen.dart';
 import 'package:ds_p2_flutter/carrito.dart';
+import 'package:ds_p2_flutter/informationScreen.dart';
 
 class CatalogScreen extends StatefulWidget {
   @override
@@ -343,7 +343,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "silla", tipo: "cocina", material: "hierro")),
                           );
                         },
                         child: Text("Información"),
@@ -387,7 +387,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "silla", tipo: "cocina", material: "madera")),
                           );
                         },
                         child: Text("Información"),
@@ -431,7 +431,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "silla", tipo: "cocina", material: "plastico")),
                           );
                         },
                         child: Text("Información"),
@@ -475,7 +475,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "silla", tipo: "oficina", material: "hierro")),
                           );
                         },
                         child: Text("Información"),
@@ -519,7 +519,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "silla", tipo: "oficina", material: "madera")),
                           );
                         },
                         child: Text("Información"),
@@ -563,7 +563,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "silla", tipo: "oficina", material: "plastico")),
                           );
                         },
                         child: Text("Información"),
@@ -607,7 +607,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "mesa", tipo: "cocina", material: "hierro")),
                           );
                         },
                         child: Text("Información"),
@@ -651,7 +651,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "mesa", tipo: "cocina", material: "madera")),
                           );
                         },
                         child: Text("Información"),
@@ -695,7 +695,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "mesa", tipo: "cocina", material: "plastico")),
                           );
                         },
                         child: Text("Información"),
@@ -739,7 +739,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "mesa", tipo: "oficina", material: "hierro")),
                           );
                         },
                         child: Text("Información"),
@@ -783,7 +783,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "mesa", tipo: "cocina", material: "madera")),
                           );
                         },
                         child: Text("Información"),
@@ -827,7 +827,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                            MaterialPageRoute(builder: (context) => InformationScreen(mueble: "mesa", tipo: "cocina", material: "plastico")),
                           );
                         },
                         child: Text("Información"),
