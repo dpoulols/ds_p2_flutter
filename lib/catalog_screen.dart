@@ -338,7 +338,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/silla_cocina_hierro.jpg', width: 155, height: 160),
                 Column(
                   children:[
-                    Text('Silla de cocina de hierro'),
+                    Text('Silla de cocina de \nhierro'),
                     ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -382,7 +382,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/silla_cocina_madera.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Silla de cocina de madera'),
+                      Text('Silla de cocina de \nmadera'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -426,7 +426,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/silla_cocina_plastico.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Silla de cocina de plastico'),
+                      Text('Silla de cocina de \nplastico'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -470,7 +470,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/silla_oficina_hierro.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Silla de oficina de hierro'),
+                      Text('Silla de oficina de \nhierro'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -514,7 +514,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/silla_oficina_madera.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Silla de oficina de madera'),
+                      Text('Silla de oficina de \nmadera'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -558,7 +558,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/silla_oficina_plastico.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Silla de oficina de plastico'),
+                      Text('Silla de oficina de \nplastico'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -602,7 +602,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/mesa_cocina_hierro.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Mesa de cocina de hierro'),
+                      Text('Mesa de cocina de \nhierro'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -646,7 +646,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/mesa_cocina_madera.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Mesa de cocina de madera'),
+                      Text('Mesa de cocina de \nmadera'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -690,7 +690,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/mesa_cocina_plastico.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Mesa de cocina de plastico'),
+                      Text('Mesa de cocina de \nplastico'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -734,7 +734,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/mesa_oficina_hierro.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Mesa de oficina de hierro'),
+                      Text('Mesa de oficina de \nhierro'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -778,7 +778,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/mesa_cocina_madera.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Mesa de oficina de madera'),
+                      Text('Mesa de oficina de \nmadera'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(
@@ -822,7 +822,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 Image.asset('assets/mesa_cocina_plastico.jpg', width: 155, height: 160),
                 Column(
                     children:[
-                      Text('Mesa de oficina de plastico'),
+                      Text('Mesa de oficina de \nplastico'),
                       ElevatedButton(
                         onPressed: (){
                           Navigator.push(

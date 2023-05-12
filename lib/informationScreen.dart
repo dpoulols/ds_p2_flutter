@@ -25,6 +25,19 @@ class _InformationScreenState extends State<InformationScreen> {
   TextEditingController _textEditingController = TextEditingController();
   String _displayText = '';
 
+
+  double precioSilla = 24.0;
+  double precioMesa = 30.0;
+
+  double _precio(String tipo){
+    if (tipo == "silla"){
+      return precioSilla;
+    } else {
+      return precioMesa;
+    }
+  }
+
+
   void _clearText() {
     setState(() {
       _textEditingController.clear();
@@ -65,19 +78,11 @@ class _InformationScreenState extends State<InformationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 10.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Información sobre la ${mueble}',
-                    style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  ),
-                ],
+              Text(
+                'Información sobre la ${mueble}',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
-
-
               const SizedBox(height: 15.0),
-
               //SECCION SILLAS
               SizedBox(height: 30.0),
 
@@ -99,6 +104,11 @@ class _InformationScreenState extends State<InformationScreen> {
                       ),
                       SizedBox(height: 15.0),
                       Text(
+                        'Precio: ${_precio(mueble)}€',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                      SizedBox(height: 15.0),
+                      Text(
                         'Garantía: 2 años',
                         style: TextStyle(fontSize: 18.0),
                       ),
@@ -111,34 +121,40 @@ class _InformationScreenState extends State<InformationScreen> {
                 'Reseñas',
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
-              Container(
-                padding: EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.blue,
-                    width: 2.0,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.blue,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Text(
-                  'Esta ${mueble} es la mejor que he comprado en mucho tiempo! Recomendadísima',
-                  style: TextStyle(fontSize: 18.0),
+                  child: Text(
+                    'Esta ${mueble} es la mejor que he comprado en mucho tiempo! Recomendadísima',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
                 ),
               ),
               SizedBox(height: 20.0),
-              Container(
-                padding: EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.blue,
-                    width: 2.0,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                    padding: EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.blue,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Text(
+                      'Nunca había tenido una ${mueble} mejor en mi ${tipo}. 10/10',
+                      style: TextStyle(fontSize: 18.0),
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Text(
-                  'Nunca había tenido una ${mueble} mejor en mi ${tipo}. 10/10',
-                  style: TextStyle(fontSize: 18.0),
-                ),
               ),
               SizedBox(height: 20.0),
               Padding(
