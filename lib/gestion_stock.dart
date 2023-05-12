@@ -17,6 +17,8 @@ class GestionStock extends StatefulWidget {
 
 class _GestionStockState extends State<GestionStock> {
 
+  // aqui stock con variables?? o una clase stock??
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
