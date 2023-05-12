@@ -1,28 +1,34 @@
-// import 'Mesa.dart'
-// import 'Silla.dart'
-// import 'FactoriaAbstracta'
-
-// class Cliente {
-//   List<Mesa> mesas;
-//   List<Silla> sillas;
+import 'package:ds_p2_flutter/factoria_abstracta.dart';
+import 'package:ds_p2_flutter/silla.dart';
+import 'package:ds_p2_flutter/mesa.dart';
 
 
-//   void comprar(FactoriaAbstracta  factoria,Mesa mesa,Silla silla, int numMesas, int numSillas){
-//     for (int i = 0; i < numMesas; i++)
-//     {
-//       mesas.push_back(factoria->obtenerMesa(mesa));
+class Cliente {
+  String nombreCliente = "";
+  List<Mesa> mesas =[];
+  List<Silla> sillas =  [];
 
-//     }
+  Cliente( String nombre){
+    nombreCliente = nombre;
+  }
 
-//    // cout << "\n Ha comprado: " << numMesas << " mesas de " << mesas.at(0)->toString() << endl;
+  void comprar(FactoriaAbstracta  factoria,Mesa mesa,Silla silla, int numMesas, int numSillas){
+    for (int i = 0; i < numMesas; i++)
+    {
+      mesas.add(factoria.obtenerMesa(mesa));
 
-//     for (int i = 0; i < numSillas ; ++i) {
-//     sillas.push_back(factoria->obtenerSilla(silla));
+    }
 
-//     }
+   // cout << "\n Ha comprado: " << numMesas << " mesas de " << mesas.at(0)->toString() << endl;
+  
 
-//     cout << "\n Ha comprado: " << numSillas << " sillas de " << sillas.at(0)->toString() << endl;
-//   }
+    for (int i = 0; i < numSillas ; ++i) {
+    sillas.add(factoria.obtenerSilla(silla));
+
+    }
+
+   // cout << "\n Ha comprado: " << numSillas << " sillas de " << sillas.at(0)->toString() << endl;
+  }
 
 
-// };
+}

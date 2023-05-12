@@ -53,6 +53,20 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
+  assets:
+    - assets/silla_cocina_hierro.jpg
+    - assets/silla_cocina_madera.jpg
+    - assets/silla_cocina_plastico.jpg
+    - assets/silla_oficina_hierro.jpg
+    - assets/silla_oficina_madera.jpg
+    - assets/silla_oficina_plastico.jpg
+    - assets/mesa_cocina_hierro.jpg
+    - assets/mesa_cocina_madera.jpg
+    - assets/mesa_cocina_plastico.jpg
+    - assets/mesa_oficina_hierro.jpg
+    - assets/mesa_oficina_madera.jpg
+    - assets/mesa_oficina_plastico.jpg
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

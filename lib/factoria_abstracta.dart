@@ -1,5 +1,7 @@
-import 'Mesa.dart';
-import 'Silla.dart';
+import 'package:ds_p2_flutter/silla.dart';
+import 'package:ds_p2_flutter/mesa.dart';
+
+
 
 abstract class  FactoriaAbstracta {
     Mesa obtenerMesa(Mesa mesa);
