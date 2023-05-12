@@ -144,7 +144,9 @@ class _CatalogScreenState extends State<CatalogScreen> {
           cliente.sillas.add(silla);
 
           if( _selectedMaterial == "Hierro"){
-          _hierroOficinaSilla++;
+            _hierroOficinaSilla++;
+            if (_hierroOficinaSilla == 1)
+              showPopUpOferta(context, "sillas", _tipo, _selectedMaterial, 15);
         }else if( _selectedMaterial == "Plastico"){
           _plasticoOficinaSilla++;
         }else if( _selectedMaterial == "Madera"){
@@ -169,6 +171,8 @@ class _CatalogScreenState extends State<CatalogScreen> {
           
           if( _selectedMaterial == "Hierro"){
             _hierroCocinaMesa++;
+            if (_hierroCocinaMesa == 1)
+              showPopUpOferta(context, "mesas", _tipo, _selectedMaterial, 20);
           }else if( _selectedMaterial == "Plastico"){
             _plasticoCocinaMesa++;
           }else if( _selectedMaterial == "Madera"){
@@ -264,6 +268,26 @@ class _CatalogScreenState extends State<CatalogScreen> {
     });
   }
 
+
+  void showPopUpOferta(BuildContext context, String mueble, String tipo, String material, int n) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("OFERTA"),
+          content: Text("Las " + mueble + " de " + tipo + " de " + material + " están rebajadas un" + n.toString() +"% actualmente."),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
