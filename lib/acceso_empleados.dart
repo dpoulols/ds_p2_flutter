@@ -1,4 +1,5 @@
 import 'package:ds_p2_flutter/gestion_clientes.dart';
+import 'package:ds_p2_flutter/gestion_stock.dart';
 import 'package:ds_p2_flutter/mesa.dart';
 import 'package:flutter/material.dart';
 import 'package:ds_p2_flutter/cliente.dart';
@@ -26,12 +27,7 @@ class _AccesoEmpleadosState extends State<AccesoEmpleados> {
       ),
       body:
       Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/fondo.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
+
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -88,10 +84,10 @@ class _AccesoEmpleadosState extends State<AccesoEmpleados> {
                   minimumSize: MaterialStateProperty.all(Size(200, 80)),
                 ),
                 onPressed: () {
-                  //Navigator.push(
-                  //context,
-                  //MaterialPageRoute(builder: (context) => ThirdScreen(myHome: this)),
-                  //);
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => GestionStock()),
+                  );
                 },
               ),
             ],

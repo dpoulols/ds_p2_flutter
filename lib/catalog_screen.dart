@@ -1,4 +1,5 @@
 import 'package:ds_p2_flutter/mesa.dart';
+import 'package:ds_p2_flutter/purchase_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ds_p2_flutter/cliente.dart';
 import 'package:ds_p2_flutter/factoria_abstracta.dart';
@@ -10,12 +11,17 @@ import 'package:ds_p2_flutter/mesa_oficina.dart';
 import 'package:ds_p2_flutter/silla_oficina.dart';
 import 'package:ds_p2_flutter/silla_cocina.dart';
 
+import 'package:ds_p2_flutter/purchase_screen.dart';
+import 'package:ds_p2_flutter/carrito.dart';
+
 class CatalogScreen extends StatefulWidget {
   @override
   _CatalogScreenState createState() => _CatalogScreenState();
 }
 
 class _CatalogScreenState extends State<CatalogScreen> {
+
+  Carrito carrito = Carrito();
 
   Cliente cliente = Cliente("Invitado");
   FactoriaAbstracta factoria = FactoriaMuebles();
@@ -271,10 +277,28 @@ class _CatalogScreenState extends State<CatalogScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 10.0),
-            Text(
-              '¡Bienvenido/a ${cliente.nombreCliente}!',
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '¡Bienvenido/a ${cliente.nombreCliente}!',
+                    style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(width: 40.0),
+                  ElevatedButton(
+                      onPressed: (){
+                        //llevar a carrito
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                        );
+                      },
+                      child: Icon(Icons.shopping_cart)
+                  ),
+                ],
+              ),
+
+
             const SizedBox(height: 15.0),
 
             //SECCION SILLAS
@@ -296,16 +320,18 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setMaterial("Hierro");
                           _setTipoMueble("Cocina");
                           _onAddSillaButtonPressed();
+                          carrito.meterSilla("Cocina", "Hierro");
                         },
                         child: Icon(Icons.add)
                     ),
                     Text(
-                      '${_getSillaCount("Hierro", "Cocina")}'
+                      '${_getSillaCount("Hierro", "Cocina")} y carrito: ${carrito.getSillas("Cocina", "Hierro")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
                           _setMaterial("Hierro");
                           _onRemoveSillaButtonPressed("Cocina"); // y material?
+                          carrito.quitarSilla("Cocina", "Hierro");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -325,6 +351,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setMaterial("Madera");
                           _setTipoMueble("Cocina");
                           _onAddSillaButtonPressed();
+                          carrito.meterSilla("Cocina", "Madera");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -335,6 +362,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Madera");
                           _onRemoveSillaButtonPressed("Cocina");
+                          carrito.quitarSilla("Cocina", "Madera");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -354,6 +382,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Cocina");
                           _setMaterial("Plastico");
                           _onAddSillaButtonPressed();
+                          carrito.meterSilla("Cocina", "Plastico");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -364,6 +393,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Plastico");
                           _onRemoveSillaButtonPressed("Cocina");
+                          carrito.quitarSilla("Cocina", "Plastico");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -383,6 +413,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Oficina");
                           _setMaterial("Hierro");
                           _onAddSillaButtonPressed();
+                          carrito.meterSilla("Oficina", "Hierro");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -393,6 +424,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Hierro");
                           _onRemoveSillaButtonPressed("Oficina");
+                          carrito.quitarSilla("Oficina", "Hierro");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -412,6 +444,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Oficina");
                           _setMaterial("Madera");
                           _onAddSillaButtonPressed();
+                          carrito.meterSilla("Oficina", "Madera");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -422,6 +455,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Madera");
                           _onRemoveSillaButtonPressed("Oficina");
+                          carrito.quitarSilla("Oficina", "Madera");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -441,6 +475,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Oficina");
                           _setMaterial("Plastico");
                           _onAddSillaButtonPressed();
+                          carrito.meterSilla("Oficina", "Plastico");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -451,6 +486,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Plastico");
                           _onRemoveSillaButtonPressed("Oficina");
+                          carrito.quitarSilla("Oficina", "Plastico");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -470,6 +506,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Cocina");
                           _setMaterial("Hierro");
                           _onAddMesaButtonPressed();
+                          carrito.meterMesa("Cocina", "Hierro");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -480,6 +517,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Hierro");
                           _onRemoveMesaButtonPressed("Cocina");
+                          carrito.quitarMesa("Cocina", "Hierro");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -499,6 +537,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Cocina");
                           _setMaterial("Madera");
                           _onAddMesaButtonPressed();
+                          carrito.meterMesa("Cocina", "Madera");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -509,6 +548,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Madera");
                           _onRemoveMesaButtonPressed("Cocina");
+                          carrito.quitarMesa("Cocina", "Madera");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -528,6 +568,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Cocina");
                           _setMaterial("Plastico");
                           _onAddMesaButtonPressed();
+                          carrito.meterMesa("Cocina", "Plastico");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -538,6 +579,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Plastico");
                           _onRemoveMesaButtonPressed("Cocina");
+                          carrito.quitarMesa("Cocina", "Plastico");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -557,6 +599,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Oficina");
                           _setMaterial("Hierro");
                           _onAddMesaButtonPressed();
+                          carrito.meterMesa("Oficina", "Hierro");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -567,6 +610,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Hierro");
                           _onRemoveMesaButtonPressed("Oficina");
+                          carrito.quitarMesa("Oficina", "Hierro");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -586,6 +630,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Cocina");
                           _setMaterial("Madera");
                           _onAddMesaButtonPressed();
+                          carrito.meterMesa("Cocina", "Madera");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -596,6 +641,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Madera");
                           _onRemoveMesaButtonPressed("Cocina");
+                          carrito.quitarMesa("Cocina", "Madera");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -615,6 +661,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setTipoMueble("Cocina");
                           _setMaterial("Plastico");
                           _onAddMesaButtonPressed();
+                          carrito.meterMesa("Cocina", "Plastico");
                         },
                         child: Icon(Icons.add)
                     ),
@@ -625,6 +672,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         onPressed: (){
                           _setMaterial("Plastico");
                           _onRemoveMesaButtonPressed("Cocina");
+                          carrito.quitarMesa("Cocina", "Plastico");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -633,23 +681,6 @@ class _CatalogScreenState extends State<CatalogScreen> {
               ],
             ),
             ////
-
-            //SECCION COMPRA
-            SizedBox(height: 18.0),
-            Text(
-              'Su carrito de compra:',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-            ),
-            
-            SizedBox(height: 20.0),
-            Text('Has comprado ${cliente.sillas.length} sillas:'),
-            Text('de Cocina: ${_getSillaCount("Hierro", "Cocina")} de hierro, ${_getSillaCount("Plastico", "Cocina")} de plástico y ${_getSillaCount("Madera", "Cocina")} de madera.'),
-            Text('de Oficina: ${_getSillaCount("Hierro", "Oficina")} de hierro, ${_getSillaCount("Plastico", "Oficina")} de plástico y ${_getSillaCount("Madera", "Oficina")} de madera.'),
-
-            SizedBox(height: 10.0),
-            Text('Has comprado ${cliente.mesas.length} mesas:'),
-            Text('de Cocina: ${_getMesaCount("Hierro", "Cocina")} de hierro, ${_getMesaCount("Plastico", "Cocina")} de plástico y ${_getMesaCount("Madera", "Cocina")} de madera.'),
-            Text('de Oficina: ${_getMesaCount("Hierro", "Oficina")} de hierro, ${_getMesaCount("Plastico", "Oficina")} de plástico y ${_getMesaCount("Madera", "Oficina")} de madera.'),
 
           ],
         ),),
