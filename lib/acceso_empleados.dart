@@ -1,17 +1,7 @@
-import 'package:ds_p2_flutter/gestion_clientes.dart';
-import 'package:ds_p2_flutter/gestion_stock.dart';
-import 'package:ds_p2_flutter/mesa.dart';
-import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/cliente.dart';
-import 'package:ds_p2_flutter/factoria_abstracta.dart';
-import 'package:ds_p2_flutter/factoria_muebles.dart';
-import 'package:ds_p2_flutter/mesa.dart';
-import 'package:ds_p2_flutter/silla.dart';
-import 'package:ds_p2_flutter/mesa_cocina.dart';
-import 'package:ds_p2_flutter/mesa_oficina.dart';
-import 'package:ds_p2_flutter/silla_oficina.dart';
-import 'package:ds_p2_flutter/silla_cocina.dart';
 import 'package:ds_p2_flutter/gestionClientesScreen.dart';
+import 'package:ds_p2_flutter/gestion_stock.dart';
+import 'package:flutter/material.dart';
+import 'package:ds_p2_flutter/gestionEmpleadosScreen.dart';
 
 class AccesoEmpleados extends StatefulWidget {
   @override
@@ -47,7 +37,7 @@ class _AccesoEmpleadosState extends State<AccesoEmpleados> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => GestionClientesScreen()),
+                    MaterialPageRoute(builder: (context) => GestionEmpleadosScreen()),
                   );
                 },
               ),
@@ -67,7 +57,7 @@ class _AccesoEmpleadosState extends State<AccesoEmpleados> {
                 onPressed: () {
                   Navigator.push(
                     context, // GestionClientes debería tener esta clase como argumento¿
-                    MaterialPageRoute(builder: (context) => GestionClientes()),
+                    MaterialPageRoute(builder: (context) => GestionClientesScreen()),
                   );
                 },
               ),

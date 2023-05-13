@@ -1,25 +1,19 @@
-import 'package:ds_p2_flutter/gestion_clientes.dart';
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/home_page.dart';
-import 'package:ds_p2_flutter/catalog_screen.dart';
-import 'catalog_screen.dart';
-import 'package:ds_p2_flutter/home_page.dart';
-import 'package:ds_p2_flutter/acceso_empleados.dart';
-import 'package:ds_p2_flutter/gestionClientesScreen.dart';
+import 'package:ds_p2_flutter/gestionEmpleadosScreen.dart';
 
 
 
 
-class PantallaFormulario extends StatefulWidget {
+class PantallaFormularioEmpleados extends StatefulWidget {
   final Empleado? empleado;
 
-  PantallaFormulario({this.empleado});
+  PantallaFormularioEmpleados({this.empleado});
 
   @override
-  _PantallaFormularioState createState() => _PantallaFormularioState();
+  _PantallaFormularioEmpleadosState createState() => _PantallaFormularioEmpleadosState();
 }
 
-class _PantallaFormularioState extends State<PantallaFormulario> {
+class _PantallaFormularioEmpleadosState extends State<PantallaFormularioEmpleados> {
   final _formKey = GlobalKey<FormState>();
   final _nombreController = TextEditingController();
   final _direccionController = TextEditingController();

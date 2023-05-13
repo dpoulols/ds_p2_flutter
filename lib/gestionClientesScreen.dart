@@ -1,20 +1,14 @@
-import 'package:ds_p2_flutter/gestion_clientes.dart';
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/home_page.dart';
-import 'package:ds_p2_flutter/catalog_screen.dart';
-import 'catalog_screen.dart';
-import 'package:ds_p2_flutter/home_page.dart';
-import 'package:ds_p2_flutter/acceso_empleados.dart';
-import 'package:ds_p2_flutter/pantallaFormulario.dart';
+import 'package:ds_p2_flutter/pantallaFormularioClientes.dart';
 
-class Empleado {
+class Cliente {
   final String nombre;
   final String direccion;
   final String correo;
   final String numero;
   final String identificador;
 
-  Empleado({required this.nombre, required this.direccion, required this.correo, required this.numero, required this.identificador});
+  Cliente({required this.nombre, required this.direccion, required this.correo, required this.numero, required this.identificador});
 }
 
 
@@ -28,48 +22,48 @@ class GestionClientesScreen extends StatefulWidget {
 class _GestionClientesScreenState extends State<GestionClientesScreen> {
 
 
-  List<Empleado> empleados = [
-    Empleado(nombre: 'Alberto López Serrano', direccion: 'Calle Puerta de Orihuela', correo: 'alberto@gmail.com', numero: '678324743', identificador: '1'),
-    Empleado(nombre: 'Lucas Martínez García', direccion: 'Calle Martinez de la Rosa', correo: 'lucas@gmail.com', numero: '726372636', identificador: '2'),
-    Empleado(nombre: 'Laura María López Box', direccion: 'Calle Altamirano', correo: 'laura@gmail.com', numero: '687600218', identificador: '3'),
-    Empleado(nombre: 'Juan José Rojas Valle', direccion: 'Calle José Recuerda', correo: 'juan@gmail.com', numero: '606850972', identificador: '4'),
-    Empleado(nombre: 'Íñigo Sánchez Serrano', direccion: 'Calle Lorca', correo: 'iñigo@gmail.com', numero: '696257835', identificador: '5'),
-    Empleado(nombre: 'Roberto López Cabanes', direccion: 'Calle Valle Inclán', correo: 'roberto@gmail.com', numero: '698521456', identificador: '6'),
-    Empleado(nombre: 'Jorge Piernas Vázquez', direccion: 'Calle Puerta Nueva', correo: 'jorge@gmail.com', numero: '678655589', identificador: '7'),
-    Empleado(nombre: 'Mercedes Bleda Aznar', direccion: 'Calle Canalejas', correo: 'mercedes@gmail.com', numero: '965587542', identificador: '8'),
-    Empleado(nombre: 'Fernando Alcantud Gil', direccion: 'Calle Recogidas', correo: 'fernando@gmail.com', numero: '658632699', identificador: '9'),
+  List<Cliente> clientes = [
+    Cliente(nombre: 'Carlos Valle Martínez', direccion: 'Calle Puerta de Orihuela', correo: 'carlos@gmail.com', numero: '678324743', identificador: '1'),
+    Cliente(nombre: 'María Velázquez Gil', direccion: 'Calle Martinez de la Rosa', correo: 'maria@gmail.com', numero: '726372636', identificador: '2'),
+    Cliente(nombre: 'Begoña López Megías', direccion: 'Calle Altamirano', correo: 'begoña@gmail.com', numero: '687600218', identificador: '3'),
+    Cliente(nombre: 'Gimena Giménez Fernández', direccion: 'Calle José Recuerda', correo: 'gimena@gmail.com', numero: '606850972', identificador: '4'),
+    Cliente(nombre: 'David Gregorio Serrano', direccion: 'Calle Lorca', correo: 'david@gmail.com', numero: '696257835', identificador: '5'),
+    Cliente(nombre: 'Martín García Ródenas', direccion: 'Calle Valle Inclán', correo: 'martin@gmail.com', numero: '698521456', identificador: '6'),
+    Cliente(nombre: 'Magdalena Piernas Box', direccion: 'Calle Puerta Nueva', correo: 'magdalena@gmail.com', numero: '678655589', identificador: '7'),
+    Cliente(nombre: 'María Vicente Aznar', direccion: 'Calle Canalejas', correo: 'vicente@gmail.com', numero: '965587542', identificador: '8'),
+    Cliente(nombre: 'Fernando López Gil', direccion: 'Calle Recogidas', correo: 'fernando@gmail.com', numero: '658632699', identificador: '9'),
 
   ];
 
-  void eliminarEmpleado(Empleado empleado) {
-  setState(() {
-  empleados.remove(empleado);
-  });
+  void eliminarCliente(Cliente cliente) {
+    setState(() {
+      clientes.remove(cliente);
+    });
   }
 
-  Future<void> mostrarFormularioNuevoEmpleado() async {
-    final nuevoEmpleado = await Navigator.push(
+  Future<void> mostrarFormularioNuevoCliente() async {
+    final nuevoCliente = await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PantallaFormulario()),
+      MaterialPageRoute(builder: (context) => PantallaFormularioClientes()),
     );
 
-    if (nuevoEmpleado != null && nuevoEmpleado is Empleado) {
+    if (nuevoCliente != null && nuevoCliente is Cliente) {
       setState(() {
-        empleados.add(nuevoEmpleado);
+        clientes.add(nuevoCliente);
       });
     }
   }
 
-  void mostrarFormularioEditarEmpleado(Empleado empleado) async {
-    final empleadoModificado = await Navigator.push(
+  void mostrarFormularioEditarCliente(Cliente cliente) async {
+    final clienteModificado = await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PantallaFormulario(empleado: empleado)),
+      MaterialPageRoute(builder: (context) => PantallaFormularioClientes(cliente: cliente)),
     );
 
-    if (empleadoModificado != null && empleadoModificado is Empleado) {
+    if (clienteModificado != null && clienteModificado is Cliente) {
       setState(() {
-        int index = empleados.indexOf(empleado);
-        empleados[index] = empleadoModificado;
+        int index = clientes.indexOf(cliente);
+        clientes[index] = clienteModificado;
       });
     }
   }
@@ -78,12 +72,12 @@ class _GestionClientesScreenState extends State<GestionClientesScreen> {
 
 
 
-  void showPopUpDelete(Empleado empleado) {
+  void showPopUpDelete(Cliente cliente) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Vas a eliminar a este empleado del sistema"),
+          title: Text("Vas a eliminar a este cliente del sistema"),
           content: Text("¿Estás seguro?"),
           actions: <Widget>[
             ElevatedButton(
@@ -96,7 +90,7 @@ class _GestionClientesScreenState extends State<GestionClientesScreen> {
               child: Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
-                showPopUpDelete2(empleado);
+                showPopUpDelete2(cliente);
               },
             ),
           ],
@@ -105,19 +99,19 @@ class _GestionClientesScreenState extends State<GestionClientesScreen> {
     );
   }
 
-  void showPopUpDelete2(Empleado empleado) {
+  void showPopUpDelete2(Cliente cliente) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("El empleado va a ser eliminado del sistema"),
-          content: Text("El emplado ${empleado.nombre} está siendo eliminado del sistema"),
+          title: Text("El cliente va a ser eliminado del sistema"),
+          content: Text("El cliente ${cliente.nombre} está siendo eliminado del sistema"),
           actions: <Widget>[
             ElevatedButton(
               child: Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
-                eliminarEmpleado(empleado);
+                eliminarCliente(cliente);
               },
             ),
           ],
@@ -127,17 +121,17 @@ class _GestionClientesScreenState extends State<GestionClientesScreen> {
   }
 
 
-  Empleado? nuevoEmpleado;
+  Cliente? nuevoCliente;
 
-  void _crearNuevoEmpleado() async {
+  void _crearNuevoCliente() async {
     final resultado = await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PantallaFormulario()),
+      MaterialPageRoute(builder: (context) => PantallaFormularioClientes()),
     );
 
-    if (resultado != null && resultado is Empleado) {
+    if (resultado != null && resultado is Cliente) {
       setState(() {
-        nuevoEmpleado = resultado;
+        nuevoCliente = resultado;
       });
     }
   }
@@ -148,30 +142,30 @@ class _GestionClientesScreenState extends State<GestionClientesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      title: Text('Lista de Empleados'),
-    ),
-    body: Column(
-      children: [
-        Expanded(
-          child: ListView.builder(
-              itemCount: empleados.length,
+        title: Text('Lista de Clientes'),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: clientes.length,
               itemBuilder: (context, index) {
-                Empleado empleado = empleados[index];
+                Cliente cliente = clientes[index];
                 return ListTile(
-                  title: Text(empleado.nombre),
+                  title: Text(cliente.nombre),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
                         icon: Icon(Icons.edit),
                         onPressed: () {
-                          mostrarFormularioEditarEmpleado(empleado);
+                          mostrarFormularioEditarCliente(cliente);
                         },
                       ),
                       IconButton(
                         icon: Icon(Icons.delete),
                         onPressed: () {
-                          showPopUpDelete(empleado);
+                          showPopUpDelete(cliente);
                         },
                       ),
                     ],
@@ -179,16 +173,16 @@ class _GestionClientesScreenState extends State<GestionClientesScreen> {
                 );
               },
             ),
-        ),
-        SizedBox(height: 16),
-        ElevatedButton(
-          onPressed: () {
-            mostrarFormularioNuevoEmpleado();
-          },
-          child: Text('Crear nuevo empleado'),
-        ),
-      ],
-    ),
+          ),
+          SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: () {
+              mostrarFormularioNuevoCliente();
+            },
+            child: Text('Crear nuevo cliente'),
+          ),
+        ],
+      ),
     );
   }
 }
