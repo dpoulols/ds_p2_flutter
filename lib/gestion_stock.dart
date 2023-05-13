@@ -1,14 +1,6 @@
-import 'package:ds_p2_flutter/mesa.dart';
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/cliente.dart';
-import 'package:ds_p2_flutter/factoria_abstracta.dart';
-import 'package:ds_p2_flutter/factoria_muebles.dart';
-import 'package:ds_p2_flutter/mesa.dart';
-import 'package:ds_p2_flutter/silla.dart';
-import 'package:ds_p2_flutter/mesa_cocina.dart';
-import 'package:ds_p2_flutter/mesa_oficina.dart';
-import 'package:ds_p2_flutter/silla_oficina.dart';
-import 'package:ds_p2_flutter/silla_cocina.dart';
+import 'package:ds_p2_flutter/stock.dart';
+
 
 class GestionStock extends StatefulWidget {
   @override
@@ -17,7 +9,7 @@ class GestionStock extends StatefulWidget {
 
 class _GestionStockState extends State<GestionStock> {
 
-  // aqui stock con variables?? o una clase stock??
+  Stock stock = Stock();
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +29,78 @@ class _GestionStockState extends State<GestionStock> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Row(
-                children: [
-                  Text(
-                      'Stock:'
-                  ),
-                ],
+              Text(
+                'SILLAS',
+                style: TextStyle(
+                  fontSize: 36, // Tamaño del texto en dp (píxeles independientes de la densidad)
+                ),
+              ),
+              Text(
+                'Sillas de cocina:',
+                style: TextStyle(
+                  fontSize: 24, // Tamaño del texto en dp (píxeles independientes de la densidad)
+                ),
+              ),
+              Text(
+                'Sillas de hierro: ${stock.getSillas("Cocina", "Hierro")}'
+              ),
+              Text(
+                  'Sillas de madera: ${stock.getSillas("Cocina", "Madera")}'
+              ),
+              Text(
+                  'Sillas de plástico: ${stock.getSillas("Cocina", "Plastico")}'
+              ),
+              Text(
+                'Sillas de oficina:',
+                style: TextStyle(
+                  fontSize: 24, // Tamaño del texto en dp (píxeles independientes de la densidad)
+                ),
+              ),
+              Text(
+                  'Sillas de hierro: ${stock.getSillas("Oficina", "Hierro")}'
+              ),
+              Text(
+                  'Sillas de madera: ${stock.getSillas("Oficina", "Madera")}'
+              ),
+              Text(
+                  'Sillas de plástico: ${stock.getSillas("Oficina", "Plastico")}'
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'MESAS',
+                style: TextStyle(
+                  fontSize: 36, // Tamaño del texto en dp (píxeles independientes de la densidad)
+                ),
+              ),
+              Text(
+                'Mesas de cocina:',
+                style: TextStyle(
+                  fontSize: 24, // Tamaño del texto en dp (píxeles independientes de la densidad)
+                ),
+              ),
+              Text(
+                  'Mesas de hierro: ${stock.getMesas("Cocina", "Hierro")}'
+              ),
+              Text(
+                  'Mesas de madera: ${stock.getMesas("Cocina", "Madera")}'
+              ),
+              Text(
+                  'Mesas de plástico: ${stock.getMesas("Cocina", "Plastico")}'
+              ),
+              Text(
+                'Mesas de oficina:',
+                style: TextStyle(
+                  fontSize: 24, // Tamaño del texto en dp (píxeles independientes de la densidad)
+                ),
+              ),
+              Text(
+                  'Mesas de hierro: ${stock.getMesas("Oficina", "Hierro")}'
+              ),
+              Text(
+                  'Mesas de madera: ${stock.getMesas("Oficina", "Madera")}'
+              ),
+              Text(
+                  'Mesas de plástico: ${stock.getMesas("Oficina", "Plastico")}'
               ),
             ],
           ),

@@ -13,15 +13,25 @@ import 'package:ds_p2_flutter/silla_cocina.dart';
 
 import 'package:ds_p2_flutter/carrito.dart';
 import 'package:ds_p2_flutter/informationScreen.dart';
+import 'package:ds_p2_flutter/stock.dart';
+import 'package:ds_p2_flutter/compra.dart';
 
 class CatalogScreen extends StatefulWidget {
+  final Stock MyStock;
+
+  CatalogScreen({required this.MyStock});
+
   @override
-  _CatalogScreenState createState() => _CatalogScreenState();
+  _CatalogScreenState createState() => _CatalogScreenState(MyStock: MyStock);
 }
 
 class _CatalogScreenState extends State<CatalogScreen> {
+  final Stock MyStock;
+
+  _CatalogScreenState({required this.MyStock});
 
   Carrito carrito = Carrito();
+
 
   Cliente cliente = Cliente("Invitado");
   FactoriaAbstracta factoria = FactoriaMuebles();
@@ -314,7 +324,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         //llevar a carrito
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito)),
+                          MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito, myStock: MyStock)),
                         );
                       },
                       child: Icon(Icons.shopping_cart)
@@ -328,7 +338,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
             //SECCION SILLAS
             SizedBox(height: 30.0),
             Text(
-              'Catálogo:',
+              'Catálogo: (sillas cocina hierro: ${MyStock.getSillas("Cocina", "Hierro")})',
               style: TextStyle(fontSize: 18.0),
             ),
             SizedBox(height: 10.0),
@@ -362,7 +372,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                      '${_getSillaCount("Hierro", "Cocina")} y carrito: ${carrito.getSillas("Cocina", "Hierro")}'
+                      '${carrito.getSillas("Cocina", "Hierro")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -406,7 +416,8 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getSillaCount("Madera", "Cocina")}'
+                        //'${_getSillaCount("Madera", "Cocina")}'
+                        '${carrito.getSillas("Cocina", "Madera")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -450,7 +461,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getSillaCount("Plastico", "Cocina")}'
+                        '${carrito.getSillas("Cocina", "Plastico")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -494,7 +505,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getSillaCount("Hierro", "Oficina")}'
+                        '${carrito.getSillas("Oficina", "Hierro")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -538,7 +549,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getSillaCount("Madera", "Oficina")}'
+                        '${carrito.getSillas("Oficina", "Madera")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -582,7 +593,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getSillaCount("Plastico", "Oficina")}'
+                        '${carrito.getSillas("Oficina", "Plastico")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -626,7 +637,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getMesaCount("Hierro", "Cocina")}'
+                        '${carrito.getMesas("Cocina", "Hierro")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -670,7 +681,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getMesaCount("Madera", "Cocina")}'
+                        '${carrito.getMesas("Cocina", "Madera")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -714,7 +725,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getMesaCount("Plastico", "Cocina")}'
+                        '${carrito.getMesas("Cocina", "Plastico")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -758,7 +769,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getMesaCount("Hierro", "Oficina")}'
+                        '${carrito.getMesas("Oficina", "Hierro")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
@@ -775,7 +786,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
-                Image.asset('assets/mesa_cocina_madera.jpg', width: 155, height: 160),
+                Image.asset('assets/mesa_oficina_madera.jpg', width: 155, height: 160),
                 Column(
                     children:[
                       Text('Mesa de oficina de \nmadera'),
@@ -794,21 +805,21 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   children: [
                     ElevatedButton(
                         onPressed: (){
-                          _setTipoMueble("Cocina");
+                          _setTipoMueble("Oficina");
                           _setMaterial("Madera");
                           _onAddMesaButtonPressed();
-                          carrito.meterMesa("Cocina", "Madera");
+                          carrito.meterMesa("Oficina", "Madera");
                         },
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getMesaCount("Madera", "Cocina")}'
+                        '${carrito.getMesas("Oficina", "Madera")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
                           _setMaterial("Madera");
                           _onRemoveMesaButtonPressed("Cocina");
-                          carrito.quitarMesa("Cocina", "Madera");
+                          carrito.quitarMesa("Oficina", "Madera");
                         },
                         child: Icon(Icons.remove)
                     ),
@@ -819,7 +830,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
-                Image.asset('assets/mesa_cocina_plastico.jpg', width: 155, height: 160),
+                Image.asset('assets/mesa_oficina_plastico.jpg', width: 155, height: 160),
                 Column(
                     children:[
                       Text('Mesa de oficina de \nplastico'),
@@ -838,21 +849,21 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   children: [
                     ElevatedButton(
                         onPressed: (){
-                          _setTipoMueble("Cocina");
+                          _setTipoMueble("Oficina");
                           _setMaterial("Plastico");
                           _onAddMesaButtonPressed();
-                          carrito.meterMesa("Cocina", "Plastico");
+                          carrito.meterMesa("Oficina", "Plastico");
                         },
                         child: Icon(Icons.add)
                     ),
                     Text(
-                        '${_getMesaCount("Plastico", "Cocina")}'
+                        '${carrito.getMesas("Oficina", "Plastico")}'
                     ),
                     ElevatedButton(
                         onPressed: (){
                           _setMaterial("Plastico");
-                          _onRemoveMesaButtonPressed("Cocina");
-                          carrito.quitarMesa("Cocina", "Plastico");
+                          _onRemoveMesaButtonPressed("Oficina");
+                          carrito.quitarMesa("Oficina", "Plastico");
                         },
                         child: Icon(Icons.remove)
                     ),

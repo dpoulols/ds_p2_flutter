@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ds_p2_flutter/catalog_screen.dart';
 import 'package:ds_p2_flutter/acceso_empleados.dart';
+import 'package:ds_p2_flutter/stock.dart';
 
 class HomePage extends StatelessWidget {
+  Stock stock = Stock();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +44,7 @@ class HomePage extends StatelessWidget {
                       ),
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return 'El campo está vacío';
                         }
                         return null;
                       },
@@ -52,7 +55,7 @@ class HomePage extends StatelessWidget {
                       ),
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return 'El campo está vacío';
                         }
                         return null;
                       },
@@ -63,7 +66,7 @@ class HomePage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => CatalogScreen()),
+                            MaterialPageRoute(builder: (context) => CatalogScreen(MyStock: stock)),
                           );
                           //if (_formKey.currentState!.validate()) {
                             // Process data.
