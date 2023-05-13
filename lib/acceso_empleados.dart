@@ -11,6 +11,7 @@ import 'package:ds_p2_flutter/mesa_cocina.dart';
 import 'package:ds_p2_flutter/mesa_oficina.dart';
 import 'package:ds_p2_flutter/silla_oficina.dart';
 import 'package:ds_p2_flutter/silla_cocina.dart';
+import 'package:ds_p2_flutter/gestionClientesScreen.dart';
 
 class AccesoEmpleados extends StatefulWidget {
   @override
@@ -44,10 +45,10 @@ class _AccesoEmpleadosState extends State<AccesoEmpleados> {
                   minimumSize: MaterialStateProperty.all(Size(200, 80)),
                 ),
                 onPressed: () {
-                  //Navigator.push(
-                    //context,
-                    //MaterialPageRoute(builder: (context) => SecondScreen(myHome: this)),
-                  //);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GestionClientesScreen()),
+                  );
                 },
               ),
               SizedBox(height: 50,),
