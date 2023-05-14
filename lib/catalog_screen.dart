@@ -15,6 +15,77 @@ import 'package:ds_p2_flutter/carrito.dart';
 import 'package:ds_p2_flutter/informationScreen.dart';
 import 'package:ds_p2_flutter/stock.dart';
 import 'package:ds_p2_flutter/compra.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:flutter_dialogflow/dialogflow_v2.dart';
+//import 'package:flutter_dialogflow/dialogflow_v2.dart' as dialogflow;
+
+
+
+class MyDialog extends StatefulWidget {
+  @override
+  _MyDialogState createState() => _MyDialogState();
+}
+
+class _MyDialogState extends State<MyDialog> {
+  TextEditingController _textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  void showPopUpAyuda(String text) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Ayuda"),
+          content: Text("Tu solicitud de ayuda por '${text}' ha sido recibida. Consultaremos nuestro sistema de preguntas y respuestas e intentaremos ayudarte en todo lo posible."),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('¿En qué podemos ayudarte?'),
+      content: TextField(
+        controller: _textEditingController,
+        decoration: InputDecoration(hintText: 'Escribe aquí'),
+      ),
+      actions: <Widget>[
+        ElevatedButton(
+          child: Text('Aceptar'),
+          onPressed: () {
+            String text = _textEditingController.text;
+            Navigator.of(context).pop(); // Cierra el cuadro de diálogo
+            showPopUpAyuda(text);
+          },
+        ),
+        ElevatedButton(
+          child: Text('Cancelar'),
+          onPressed: () {
+            Navigator.of(context).pop(); // Cierra el cuadro de diálogo
+          },
+        ),
+      ],
+    );
+  }
+}
+
+
+
 
 class CatalogScreen extends StatefulWidget {
   final Stock MyStock;
@@ -279,13 +350,35 @@ class _CatalogScreenState extends State<CatalogScreen> {
   }
 
 
+  void showPopUpOfertasSemana() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("OFERTAS DE LA SEMANA"),
+          content: Text("- Las sillas de oficina de hierro están rebajadas un 15%\n- Las mesas de cocina de hierro están rebajadas un 20%"),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+
   void showPopUpOferta(BuildContext context, String mueble, String tipo, String material, int n) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("OFERTA"),
-          content: Text("Las " + mueble + " de " + tipo + " de " + material + " están rebajadas un" + n.toString() +"% actualmente."),
+          content: Text("Las " + mueble + " de " + tipo + " de " + material + " están rebajadas un " + n.toString() +"% actualmente."),
           actions: <Widget>[
             ElevatedButton(
               child: Text("OK"),
@@ -300,10 +393,30 @@ class _CatalogScreenState extends State<CatalogScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      showPopUpOfertasSemana();
+    });
+  }
+
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Mi catálogo'),
+        actions: [
+          IconButton(icon: Icon(Icons.help), onPressed:(){
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return MyDialog();
+              },
+            );
+            },
+          ),
+        ],
       ),
       body: Center(
         child: SingleChildScrollView(
