@@ -96,6 +96,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                   'Su compra:',
                   style: TextStyle(fontSize: 20),
                 ),
+                const SizedBox(height: 10,),
                 Text(
                     'Sillas cocina hierro: ${compras.last.getSillas("Cocina", "Hierro")}',
                   style: TextStyle(fontSize: 20),
@@ -144,6 +145,26 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                 Text(
                     'Mesas oficina plastico: ${compras.last.getMesas("Oficina", "Plastico")}',
                   style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 50,),
+                ElevatedButton(
+                  child: Text(
+                    'Volver al inicio',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(Size(200, 50)),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
                 ),
               ]
             )

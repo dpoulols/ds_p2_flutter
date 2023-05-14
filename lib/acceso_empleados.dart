@@ -73,7 +73,7 @@ class _AccesoEmpleadosState extends State<AccesoEmpleados> {
               SizedBox(height: 50,),
               ElevatedButton(
                 child: Text(
-                  'Gestión del stock**',
+                  'Gestión del stock',
                   style: TextStyle(
                     fontSize: 20.0,
                     color: Colors.white,
