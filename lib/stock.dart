@@ -1,19 +1,22 @@
+const int _NUM_STOCK = 40;
+
 class Stock{
-  int _sillasOficinaMadera = 40;
-  int _sillasOficinaHierro = 40;
-  int _sillasOficinaPlastico = 40;
 
-  int _sillasCocinaMadera = 40;
-  int _sillasCocinaHierro = 40;
-  int _sillasCocinaPlastico = 40;
+  int _sillasOficinaMadera = _NUM_STOCK;
+  int _sillasOficinaHierro = _NUM_STOCK;
+  int _sillasOficinaPlastico = _NUM_STOCK;
 
-  int _mesasOficinaMadera = 45;
-  int _mesasOficinaHierro = 45;
-  int _mesasOficinaPlastico = 45;
+  int _sillasCocinaMadera = _NUM_STOCK;
+  int _sillasCocinaHierro = _NUM_STOCK;
+  int _sillasCocinaPlastico = _NUM_STOCK;
 
-  int _mesasCocinaMadera = 45;
-  int _mesasCocinaHierro = 45;
-  int _mesasCocinaPlastico = 45;
+  int _mesasOficinaMadera = _NUM_STOCK;
+  int _mesasOficinaHierro = _NUM_STOCK;
+  int _mesasOficinaPlastico = _NUM_STOCK;
+
+  int _mesasCocinaMadera = _NUM_STOCK;
+  int _mesasCocinaHierro = _NUM_STOCK;
+  int _mesasCocinaPlastico = _NUM_STOCK;
 
   //int _sillasTotales = 0;
   //int _mesasTotales = 0;
@@ -192,5 +195,53 @@ class Stock{
 
   }
 
+  String productoMasVendido(){
+    String prodMasVentas = 'Silla Oficina de Madera.';
 
+    if(_sillasOficinaHierro < _sillasOficinaMadera){
+      prodMasVentas = 'Silla Oficina de Hierro.';
+    }
+
+    if(_sillasOficinaPlastico < _sillasOficinaHierro){
+      prodMasVentas = 'Silla Oficina de Plastico.';
+    }
+
+    if(_sillasCocinaMadera < _sillasOficinaPlastico){
+      prodMasVentas = 'Silla Cocina de Madera.';
+    }
+
+    if(_sillasCocinaHierro < _sillasCocinaMadera){
+      prodMasVentas = 'Silla Cocina de Hierro.';
+    }
+
+    if(_sillasCocinaPlastico < _sillasCocinaHierro){
+      prodMasVentas = 'Silla Cocina de Plastico.';
+    }
+
+    if(_mesasOficinaMadera < _sillasCocinaPlastico){
+      prodMasVentas = 'Mesa Oficina de Madera.';
+    }
+
+    if(_mesasOficinaHierro < _mesasOficinaMadera){
+      prodMasVentas = 'Mesa Oficina de Hierro.';
+    }
+
+    if(_mesasOficinaPlastico < _mesasOficinaHierro){
+      prodMasVentas = 'Mesa Oficina de Plastico.';
+    }
+
+    if(_mesasCocinaMadera < _mesasOficinaPlastico){
+      prodMasVentas = 'Mesa Cocina de Madera.';
+    }
+
+    if(_mesasCocinaHierro < _mesasCocinaMadera){
+      prodMasVentas = 'Mesa Cocina de Hierro.';
+    }
+
+    if(_mesasCocinaPlastico < _mesasCocinaHierro){
+      prodMasVentas = 'Mesa Cocina de Plastico.';
+    }
+
+    return prodMasVentas;
+  }
 }

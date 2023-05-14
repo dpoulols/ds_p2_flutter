@@ -1,10 +1,9 @@
 import 'package:ds_p2_flutter/mesa.dart';
 import 'package:ds_p2_flutter/purchase_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/cliente.dart';
+import 'package:ds_p2_flutter/Cliente.dart';
 import 'package:ds_p2_flutter/factoria_abstracta.dart';
 import 'package:ds_p2_flutter/factoria_muebles.dart';
-import 'package:ds_p2_flutter/mesa.dart';
 import 'package:ds_p2_flutter/silla.dart';
 import 'package:ds_p2_flutter/mesa_cocina.dart';
 import 'package:ds_p2_flutter/mesa_oficina.dart';
@@ -401,12 +400,6 @@ class _CatalogScreenState extends State<CatalogScreen> {
     });
   }
 
-  void meterSilla(String tipo, String material){
-    setState(() {
-      carrito.meterSilla(tipo, material);
-    });
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -461,6 +454,13 @@ class _CatalogScreenState extends State<CatalogScreen> {
               'Catálogo:',
               style: TextStyle(fontSize: 18.0),
             ),
+
+            SizedBox(height: 30.0),
+            Text(
+              'El producto más vendido es:\n'+myStock.productoMasVendido(),
+              style: TextStyle(fontSize: 18.0),
+            ),
+
             SizedBox(height: 10.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -487,7 +487,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setMaterial("Hierro");
                           _setTipoMueble("Cocina");
                           _onAddSillaButtonPressed();
-                          meterSilla("Cocina", "Hierro");
+                          carrito.meterSilla("Cocina", "Hierro");
                         },
                         child: Icon(Icons.add)
                     ),
