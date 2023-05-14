@@ -23,10 +23,6 @@ class Carrito{
 
   double _precioTotal = 0;
 
-  // almacenar compras??
-  // List<Compra> compras = [];
-  // Clase compra que tenga esto mismo, contadores de sillas y mesas ??
-
   int getSillas(String tipo, String material){
     int sillas = 0;
 

@@ -401,6 +401,12 @@ class _CatalogScreenState extends State<CatalogScreen> {
     });
   }
 
+  void meterSilla(String tipo, String material){
+    setState(() {
+      carrito.meterSilla(tipo, material);
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -481,7 +487,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                           _setMaterial("Hierro");
                           _setTipoMueble("Cocina");
                           _onAddSillaButtonPressed();
-                          carrito.meterSilla("Cocina", "Hierro");
+                          meterSilla("Cocina", "Hierro");
                         },
                         child: Icon(Icons.add)
                     ),
