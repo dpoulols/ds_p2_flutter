@@ -22,6 +22,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 
 class MyDialog extends StatefulWidget {
+
   @override
   _MyDialogState createState() => _MyDialogState();
 }
@@ -88,18 +89,18 @@ class _MyDialogState extends State<MyDialog> {
 
 
 class CatalogScreen extends StatefulWidget {
-  final Stock MyStock;
+  final Stock myStock;
 
-  CatalogScreen({required this.MyStock});
+  CatalogScreen({required this.myStock});
 
   @override
-  _CatalogScreenState createState() => _CatalogScreenState(MyStock: MyStock);
+  _CatalogScreenState createState() => _CatalogScreenState(myStock: myStock);
 }
 
 class _CatalogScreenState extends State<CatalogScreen> {
-  final Stock MyStock;
+  final Stock myStock;
 
-  _CatalogScreenState({required this.MyStock});
+  _CatalogScreenState({required this.myStock});
 
   Carrito carrito = Carrito();
 
@@ -437,7 +438,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                         //llevar a carrito
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito, myStock: MyStock)),
+                          MaterialPageRoute(builder: (context) => PurchaseScreen(myCarrito: carrito, myStock: myStock)),
                         );
                       },
                       child: Icon(Icons.shopping_cart)
@@ -451,7 +452,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
             //SECCION SILLAS
             SizedBox(height: 30.0),
             Text(
-              'Catálogo: (sillas cocina hierro: ${MyStock.getSillas("Cocina", "Hierro")})',
+              'Catálogo:',
               style: TextStyle(fontSize: 18.0),
             ),
             SizedBox(height: 10.0),

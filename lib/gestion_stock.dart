@@ -3,13 +3,20 @@ import 'package:ds_p2_flutter/stock.dart';
 
 
 class GestionStock extends StatefulWidget {
+  final Stock myStock;
+
+  GestionStock({required this.myStock});
+
   @override
-  _GestionStockState createState() => _GestionStockState();
+  _GestionStockState createState() => _GestionStockState(myStock: myStock);
 }
 
 class _GestionStockState extends State<GestionStock> {
+  final Stock myStock;
 
-  Stock stock = Stock();
+  _GestionStockState({required this.myStock});
+
+  //Stock stock = Stock();
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +49,13 @@ class _GestionStockState extends State<GestionStock> {
                 ),
               ),
               Text(
-                'Sillas de hierro: ${stock.getSillas("Cocina", "Hierro")}'
+                'Sillas de hierro: ${myStock.getSillas("Cocina", "Hierro")}'
               ),
               Text(
-                  'Sillas de madera: ${stock.getSillas("Cocina", "Madera")}'
+                  'Sillas de madera: ${myStock.getSillas("Cocina", "Madera")}'
               ),
               Text(
-                  'Sillas de plástico: ${stock.getSillas("Cocina", "Plastico")}'
+                  'Sillas de plástico: ${myStock.getSillas("Cocina", "Plastico")}'
               ),
               Text(
                 'Sillas de oficina:',
@@ -57,13 +64,13 @@ class _GestionStockState extends State<GestionStock> {
                 ),
               ),
               Text(
-                  'Sillas de hierro: ${stock.getSillas("Oficina", "Hierro")}'
+                  'Sillas de hierro: ${myStock.getSillas("Oficina", "Hierro")}'
               ),
               Text(
-                  'Sillas de madera: ${stock.getSillas("Oficina", "Madera")}'
+                  'Sillas de madera: ${myStock.getSillas("Oficina", "Madera")}'
               ),
               Text(
-                  'Sillas de plástico: ${stock.getSillas("Oficina", "Plastico")}'
+                  'Sillas de plástico: ${myStock.getSillas("Oficina", "Plastico")}'
               ),
               const SizedBox(height: 20),
               Text(
@@ -79,13 +86,13 @@ class _GestionStockState extends State<GestionStock> {
                 ),
               ),
               Text(
-                  'Mesas de hierro: ${stock.getMesas("Cocina", "Hierro")}'
+                  'Mesas de hierro: ${myStock.getMesas("Cocina", "Hierro")}'
               ),
               Text(
-                  'Mesas de madera: ${stock.getMesas("Cocina", "Madera")}'
+                  'Mesas de madera: ${myStock.getMesas("Cocina", "Madera")}'
               ),
               Text(
-                  'Mesas de plástico: ${stock.getMesas("Cocina", "Plastico")}'
+                  'Mesas de plástico: ${myStock.getMesas("Cocina", "Plastico")}'
               ),
               Text(
                 'Mesas de oficina:',
@@ -94,13 +101,13 @@ class _GestionStockState extends State<GestionStock> {
                 ),
               ),
               Text(
-                  'Mesas de hierro: ${stock.getMesas("Oficina", "Hierro")}'
+                  'Mesas de hierro: ${myStock.getMesas("Oficina", "Hierro")}'
               ),
               Text(
-                  'Mesas de madera: ${stock.getMesas("Oficina", "Madera")}'
+                  'Mesas de madera: ${myStock.getMesas("Oficina", "Madera")}'
               ),
               Text(
-                  'Mesas de plástico: ${stock.getMesas("Oficina", "Plastico")}'
+                  'Mesas de plástico: ${myStock.getMesas("Oficina", "Plastico")}'
               ),
             ],
           ),

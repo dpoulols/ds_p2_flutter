@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => CatalogScreen(MyStock: stock)),
+                            MaterialPageRoute(builder: (context) => CatalogScreen(myStock: stock)),
                           );
                           //if (_formKey.currentState!.validate()) {
                             // Process data.
@@ -82,7 +82,7 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AccesoEmpleados()),
+                    MaterialPageRoute(builder: (context) => AccesoEmpleados(myStock: stock)),
                   );
                   //if (_formKey.currentState!.validate()) {
                   // Process data.

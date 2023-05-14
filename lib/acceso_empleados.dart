@@ -2,13 +2,22 @@ import 'package:ds_p2_flutter/gestionClientesScreen.dart';
 import 'package:ds_p2_flutter/gestion_stock.dart';
 import 'package:flutter/material.dart';
 import 'package:ds_p2_flutter/gestionEmpleadosScreen.dart';
+import 'package:ds_p2_flutter/stock.dart';
 
 class AccesoEmpleados extends StatefulWidget {
+  final Stock myStock;
+
+  AccesoEmpleados({required this.myStock});
+
+
   @override
-  _AccesoEmpleadosState createState() => _AccesoEmpleadosState();
+  _AccesoEmpleadosState createState() => _AccesoEmpleadosState(myStock: myStock);
 }
 
 class _AccesoEmpleadosState extends State<AccesoEmpleados> {
+  final Stock myStock;
+
+  _AccesoEmpleadosState({required this.myStock});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +86,7 @@ class _AccesoEmpleadosState extends State<AccesoEmpleados> {
                 onPressed: () {
                   Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => GestionStock()),
+                  MaterialPageRoute(builder: (context) => GestionStock(myStock: myStock)),
                   );
                 },
               ),

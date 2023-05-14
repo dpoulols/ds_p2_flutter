@@ -88,66 +88,129 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                    '¡Gracias por su compra! '
+                    '¡Gracias por su compra! ',
+                  style: TextStyle(fontSize: 32),
                 ),
                 const SizedBox(height: 20,),
-                Text('Su compra:'),
-                Text(''
-                    'Sillas cocina hierro: ${compras.last.getSillas("Cocina", "Hierro")}'
+                Text(
+                  'Su compra:',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Sillas cocina madera: ${compras.last.getSillas("Cocina", "Madera")}'
+                Text(
+                    'Sillas cocina hierro: ${compras.last.getSillas("Cocina", "Hierro")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Sillas cocina plastico: ${compras.last.getSillas("Cocina", "Plastico")}'
+                Text(
+                    'Sillas cocina madera: ${compras.last.getSillas("Cocina", "Madera")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Sillas oficina hierro: ${compras.last.getSillas("Oficina", "Hierro")}'
+                Text(
+                    'Sillas cocina plastico: ${compras.last.getSillas("Cocina", "Plastico")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Sillas oficina madera: ${compras.last.getSillas("Oficina", "Madera")}'
+                Text(
+                    'Sillas oficina hierro: ${compras.last.getSillas("Oficina", "Hierro")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Sillas oficina plastico: ${compras.last.getSillas("Oficina", "Plastico")}'
+                Text(
+                    'Sillas oficina madera: ${compras.last.getSillas("Oficina", "Madera")}',
+                  style: TextStyle(fontSize: 20),
+                ),
+                Text(
+                    'Sillas oficina plastico: ${compras.last.getSillas("Oficina", "Plastico")}',
+                  style: TextStyle(fontSize: 20),
                 ),
                 SizedBox(height: 15,),
-                Text(''
-                    'Mesas cocina hierro: ${compras.last.getMesas("Cocina", "Hierro")}'
+                Text(
+                    'Mesas cocina hierro: ${compras.last.getMesas("Cocina", "Hierro")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Mesas cocina madera: ${compras.last.getMesas("Cocina", "Madera")}'
+                Text(
+                    'Mesas cocina madera: ${compras.last.getMesas("Cocina", "Madera")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Mesas cocina plastico: ${compras.last.getMesas("Cocina", "Plastico")}'
+                Text(
+                    'Mesas cocina plastico: ${compras.last.getMesas("Cocina", "Plastico")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Mesas oficina hierro: ${compras.last.getMesas("Oficina", "Hierro")}'
+                Text(
+                    'Mesas oficina hierro: ${compras.last.getMesas("Oficina", "Hierro")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Mesas oficina madera: ${compras.last.getMesas("Oficina", "Madera")}'
+                Text(
+                    'Mesas oficina madera: ${compras.last.getMesas("Oficina", "Madera")}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                Text(''
-                    'Mesas oficina plastico: ${compras.last.getMesas("Oficina", "Plastico")}'
+                Text(
+                    'Mesas oficina plastico: ${compras.last.getMesas("Oficina", "Plastico")}',
+                  style: TextStyle(fontSize: 20),
                 ),
               ]
             )
             : Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            Text(
-              'Precio: \$${myCarrito.getPrecioTotal()}',
-              style: TextStyle(fontSize: 20),
-            ),
-            Text(
-              'Stock sillas cocina hierro: ${myStock.getSillas("Cocina", "Hierro")}'
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _makePurchase,
-              child: Text('Comprar'),
-            ),
-          ],
-        ),
+              Text(
+                'Sillas cocina hierro: ${myCarrito.getSillas("Cocina", "Hierro")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Sillas cocina madera: ${myCarrito.getSillas("Cocina", "Madera")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Sillas cocina plastico: ${myCarrito.getSillas("Cocina", "Plastico")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Sillas oficina hierro: ${myCarrito.getSillas("Oficina", "Hierro")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Sillas oficina madera: ${myCarrito.getSillas("Oficina", "Madera")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Sillas oficina plastico: ${myCarrito.getSillas("Oficina", "Plastico")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 15,),
+              Text(
+                'Mesas cocina hierro: ${myCarrito.getMesas("Cocina", "Hierro")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Mesas cocina madera: ${myCarrito.getMesas("Cocina", "Madera")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Mesas cocina plastico: ${myCarrito.getMesas("Cocina", "Plastico")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Mesas oficina hierro: ${myCarrito.getMesas("Oficina", "Hierro")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Mesas oficina madera: ${myCarrito.getMesas("Oficina", "Madera")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                'Mesas oficina plastico: ${myCarrito.getMesas("Oficina", "Plastico")}',
+                style: TextStyle(fontSize: 20),
+              ),
+              const SizedBox(height: 20,),
+              Text(
+                'Precio total: \$${myCarrito.getPrecioTotal()}',
+                style: TextStyle(fontSize: 32),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _makePurchase,
+                child: Text('Comprar'),
+              ),
+            ],
+          ),
       ),
     );
   }
