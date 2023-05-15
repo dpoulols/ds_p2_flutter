@@ -88,7 +88,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                    '¡Gracias por su compra! ',
+                    '¡Gracias por su compra!',
                   style: TextStyle(fontSize: 32),
                 ),
                 const SizedBox(height: 20,),

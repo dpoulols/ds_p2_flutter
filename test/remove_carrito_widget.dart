@@ -7,14 +7,14 @@ import 'package:ds_p2_flutter/purchase_screen.dart';
 
 
 void main(){
-  testWidgets('Incrementar la cantidad de productos', (WidgetTester tester) async{
+  testWidgets('Decrementar la cantidad de productos', (WidgetTester tester) async{
     Carrito carrito = Carrito();
     carrito.meterSilla("Cocina", "Hierro"); // metemos una silla de cocina, hierro
     carrito.meterSilla("Cocina", "Hierro"); // metemos otra silla de cocina, hierro
     //await tester.pumpWidget(MaterialApp(home: ShoppingCartScreen(cart)));
     await tester.pumpWidget(MyApp());
     // catalogscreen
-    final catalogButton = find.widgetWithText(ElevatedButton, 'Ir a Catálogo');
+    final catalogButton = find.widgetWithText(ElevatedButton, 'Iniciar sesion');
     // pulsamos catalog screen
     await tester.tap(catalogButton);
     await tester.pumpAndSettle();
