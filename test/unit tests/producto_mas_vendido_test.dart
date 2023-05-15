@@ -4,7 +4,7 @@ import 'package:ds_p2_flutter/stock.dart';
 void main(){
   group('Producto más vendido (menos stock)', () {
     final stock = Stock();
-    test('Producto más vendido 1 (con menos stock)', () {
+    test('Producto con menos stock (Mesa cocina de hierro)', () {
       
       stock.setMesasOficinaMadera(5);
       stock.setSillasOficinaMadera(12);
@@ -15,7 +15,7 @@ void main(){
       expect(stock.productoMasVendido(), 'Mesa Cocina de Hierro.');
     });
 
-    test('Producto más vendido (con menos stock) ', () {
+    test('Producto con menos stock (Mesa cocina de plástico) ', () {
 
       stock.setMesasOficinaMadera(5);
       stock.setSillasOficinaMadera(12);
@@ -27,7 +27,6 @@ void main(){
       expect(stock.productoMasVendido(), 'Mesa Cocina de Plastico.');
     });
   });
-  
-
-  //No deberíamos usar nunca que el metodo devuelva un string. Debería devolver probablemente un objeto producto y luego si acaso usar el método ToString()
 }
+
+//No deberíamos usar nunca que el metodo devuelva un string. Debería devolver probablemente un objeto producto y luego si acaso usar el método ToString()
