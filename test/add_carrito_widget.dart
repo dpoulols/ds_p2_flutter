@@ -11,23 +11,27 @@ void main(){
   testWidgets('Incrementar la cantidad de productos', (WidgetTester tester) async{
     Carrito carrito = Carrito();
     Stock stock = Stock();
-    carrito.meterSilla("Cocina", "Hierro"); // metemos una silla de cocina, hierro
-    //await tester.pumpWidget(MaterialApp(home: PurchaseScreen(myCarrito: carrito, myStock: stock,)));
+
+    // Metemos una silla de tipo cocina, de hierro
+    carrito.meterSilla("Cocina", "Hierro");
+
     await tester.pumpWidget(MyApp());
 
-    // catalogscreen
+    // Buscamos el botón que nos lleva a catalog_screen (la pantalla del catálogo)
     final catalogButton = find.widgetWithText(ElevatedButton, 'Iniciar sesion');
-    // pulsamos catalog screen
+
+    // Pulsamos el botón
     await tester.tap(catalogButton);
     await tester.pumpAndSettle();
 
-    // buscamos el widget de sumar al carrito
+    // Buscamos el widget de sumar al carrito
     final increaseItems = find.widgetWithIcon(ElevatedButton,Icons.add);
 
-    // lo pulsamos
+    // Pulsamos el botón
     await tester.tap(increaseItems);
     await tester.pump();
 
+    // Al principio había una y al añadir una debería haber dos
     expect(find.text("2"),findsOneWidget);
   });
 }

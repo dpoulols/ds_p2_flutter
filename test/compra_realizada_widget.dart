@@ -9,30 +9,37 @@ import 'package:ds_p2_flutter/purchase_screen.dart';
 void main(){
   testWidgets('Comprar', (WidgetTester tester) async{
     Carrito carrito = Carrito();
-    carrito.meterSilla("Cocina", "Hierro"); // metemos una silla de cocina, hierro
-    carrito.meterSilla("Cocina", "Hierro"); // metemos otra silla de cocina, hierro
+
+    // Metemos un par de sillas y un par de mesas
+    carrito.meterSilla("Cocina", "Hierro");
+    carrito.meterSilla("Cocina", "Hierro");
     carrito.meterMesa("Oficina", "Plastico");
     carrito.meterMesa("Cocina", "Madera");
-    //await tester.pumpWidget(MaterialApp(home: ShoppingCartScreen(cart)));
+
     await tester.pumpWidget(MyApp());
+
+    // Buscamos el botón que nos lleva a catalog_screen (la pantalla del catálogo)
     final catalogButton = find.widgetWithText(ElevatedButton, 'Iniciar sesion');
-    // tocamos el boton para acceder a catalog screen
+
+    // Pulsamos el botón
     await tester.tap(catalogButton);
     await tester.pumpAndSettle();
 
-    // encontramos el boton para acceder a purchase_screen
+    // Buscamos el boton para acceder a purchase_screen (la pantalla de compra)
     final purchaseButton = find.widgetWithIcon(ElevatedButton, Icons.shopping_cart);
-    // tocamos el boton para acceder a purchase_screen
+
+    // Pulsamos el botón
     await tester.tap(purchaseButton);
     await tester.pumpAndSettle();
 
-
+    // Buscamos el botón para realizar la compra
     final comprarButton = find.widgetWithText(ElevatedButton, 'Comprar');
 
+    // Pulsamos el botón
     await tester.tap(comprarButton);
-    //await tester.pumpAndSettle();
     await tester.pump();
 
+    // Tendrá que salir este texto si la compra se ha efectuado con éxito
     expect(find.text("¡Gracias por su compra!"),findsOneWidget);
   });
 }

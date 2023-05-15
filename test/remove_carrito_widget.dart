@@ -9,23 +9,29 @@ import 'package:ds_p2_flutter/purchase_screen.dart';
 void main(){
   testWidgets('Decrementar la cantidad de productos', (WidgetTester tester) async{
     Carrito carrito = Carrito();
-    carrito.meterSilla("Cocina", "Hierro"); // metemos una silla de cocina, hierro
-    carrito.meterSilla("Cocina", "Hierro"); // metemos otra silla de cocina, hierro
-    //await tester.pumpWidget(MaterialApp(home: ShoppingCartScreen(cart)));
+
+    // Metemos dos sillas de tipo cocina, de hierro
+    carrito.meterSilla("Cocina", "Hierro");
+    carrito.meterSilla("Cocina", "Hierro");
+
     await tester.pumpWidget(MyApp());
-    // catalogscreen
+
+    // Buscamos el botón que nos lleva a catalog_screen (la pantalla del catálogo)
     final catalogButton = find.widgetWithText(ElevatedButton, 'Iniciar sesion');
-    // pulsamos catalog screen
+
+    // Pulsamos el botón
     await tester.tap(catalogButton);
     await tester.pumpAndSettle();
 
-    // buscamos el widget de quitar del carrito
+    // Buscamos el widget de quitar del carrito
     final removeItem = find.widgetWithIcon(ElevatedButton,Icons.remove);
 
-
+    // Pulsamos el botón
     await tester.tap(removeItem);
     await tester.pump();
 
+    // Al principio había dos y al quitar una debería quedar una nada más
     expect(find.text("1"),findsOneWidget);
   });
 }
+
