@@ -3,27 +3,27 @@ import 'package:ds_p2_flutter/stock.dart';
 
 void main(){
 
-  group('Prueba de unidad para comprobar que se eliminan mesas correctamente del stock', () {
+  group('Prueba de unidad para comprobar que se añaden mesas correctamente del stock', () {
 
     final stock = Stock();
 
-    test('Quitar 2 mesas de cocina de plástico', () {
-
+    test('Reponer 2 mesas de cocina de plástico', () {
+      
       assert(stock.getMesas("Cocina", "Plastico") == 40);
-      stock.quitarStockMesas("Cocina", "Plastico", 2);
+      stock.reponerStockMesas("Cocina", "Plastico", 2);
       final int valor = stock.getMesas("Cocina", "Plastico");
 
-      expect(valor, 38);
+      expect(valor, 42);
     });
 
-    test('Quitar 25 mesas de oficina de madera', () {
+    test('Reponer 25 mesas de oficina de madera', () {
       
       assert(stock.getMesas("Oficina", "Madera") == 40);
-      stock.quitarStockMesas("Oficina", "Madera", 25);
+      stock.reponerStockMesas("Oficina", "Madera", 25);
       final int valor = stock.getMesas("Oficina", "Madera");
 
-      expect(valor, 15);
+      expect(valor, 65);
     });
 
-   });
+  });
 }
