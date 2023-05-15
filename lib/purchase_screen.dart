@@ -162,7 +162,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => HomePage(myStock: myStock,)),
                     );
                   },
                 ),

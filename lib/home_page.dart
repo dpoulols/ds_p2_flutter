@@ -3,8 +3,19 @@ import 'package:ds_p2_flutter/catalog_screen.dart';
 import 'package:ds_p2_flutter/acceso_empleados.dart';
 import 'package:ds_p2_flutter/stock.dart';
 
-class HomePage extends StatelessWidget {
-  Stock stock = Stock();
+class HomePage extends StatefulWidget {
+  final Stock myStock;
+
+  HomePage({required this.myStock});
+  @override
+  _HomePageState createState() => _HomePageState(myStock: myStock);
+}
+//class _HomePageState extends StatelessWidget {
+class _HomePageState extends State<HomePage> {
+
+  final Stock myStock;
+  //Stock stock = Stock();
+  _HomePageState({required this.myStock});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +77,7 @@ class HomePage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => CatalogScreen(myStock: stock)),
+                            MaterialPageRoute(builder: (context) => CatalogScreen(myStock: myStock)),
                           );
                           //if (_formKey.currentState!.validate()) {
                             // Process data.
@@ -82,7 +93,7 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AccesoEmpleados(myStock: stock)),
+                    MaterialPageRoute(builder: (context) => AccesoEmpleados(myStock: myStock)),
                   );
                   //if (_formKey.currentState!.validate()) {
                   // Process data.
