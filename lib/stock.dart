@@ -18,6 +18,31 @@ class Stock{
   int _mesasCocinaHierro = _NUM_STOCK;
   int _mesasCocinaPlastico = _NUM_STOCK;
 
+  void setSillasOficinaMadera(int num){
+    _sillasOficinaMadera = num;
+  }
+
+  void setMesasOficinaMadera(int num){
+    _mesasOficinaMadera = num;
+  }
+
+  void setSillasCocinaMadera(int num){
+    _sillasCocinaMadera = num;
+  }
+
+  void setMesaOficinaHierro(int num){
+    _mesasCocinaHierro = num;
+  }
+
+  void setMesaCocinaHierro(int num){
+    _mesasCocinaHierro = num;
+  }
+
+  void setMesaCocinaPlastico(int num){
+    _mesasCocinaPlastico = num;
+  }
+
+
   //int _sillasTotales = 0;
   //int _mesasTotales = 0;
 
@@ -245,3 +270,4 @@ class Stock{
     return prodMasVentas;
   }
 }
+
