@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/pantallaFormularioClientes.dart';
+import 'package:ds_p2_flutter/formulario_clientes.dart';
 
 class Cliente {
   final String nombre;
@@ -17,6 +17,14 @@ class GestionClientesScreen extends StatefulWidget {
 
   @override
   _GestionClientesScreenState createState() => _GestionClientesScreenState();
+
+  static void eliminarCliente(List<Cliente> clientes, Cliente cliente){
+    clientes.remove(cliente);
+  }
+
+  static void addCliente(List<Cliente> clientes, Cliente cliente){
+    clientes.add(cliente);
+  }
 }
 
 class _GestionClientesScreenState extends State<GestionClientesScreen> {

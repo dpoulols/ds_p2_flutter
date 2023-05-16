@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ds_p2_flutter/main.dart';
 import 'package:ds_p2_flutter/carrito.dart';
-import 'package:ds_p2_flutter/purchase_screen.dart';
+import 'package:ds_p2_flutter/purchase.dart';
 import 'package:ds_p2_flutter/stock.dart';
 
 

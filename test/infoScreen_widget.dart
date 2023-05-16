@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ds_p2_flutter/informationScreen.dart';
+import 'package:ds_p2_flutter/informacion.dart';
 
 void main() {
   testWidgets('InformationScreen displays mueble information', (WidgetTester tester) async {

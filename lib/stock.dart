@@ -18,9 +18,6 @@ class Stock{
   int _mesasCocinaHierro = _NUM_STOCK;
   int _mesasCocinaPlastico = _NUM_STOCK;
 
-  int getNUM_STOCK(){
-    return _NUM_STOCK;
-  }
 
   void setSillasOficinaMadera(int num){
     _sillasOficinaMadera = num;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ds_p2_flutter/home_page.dart';
-import 'package:ds_p2_flutter/catalog_screen.dart';
-import 'catalog_screen.dart';
+import 'package:ds_p2_flutter/catalogo.dart';
+import 'catalogo.dart';
 
 class InformationScreen extends StatefulWidget {
 

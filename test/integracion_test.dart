@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ds_p2_flutter/informationScreen.dart';
+import 'package:ds_p2_flutter/informacion.dart';
 
 /*En este test, se crea una instancia del widget InformationScreen y se utiliza
  pumpWidget para construir el árbol de widgets. Luego, se usan los métodos

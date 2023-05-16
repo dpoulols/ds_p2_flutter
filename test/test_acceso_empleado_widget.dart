@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ds_p2_flutter/gestionEmpleadosScreen.dart';
-import 'package:ds_p2_flutter/gestionClientesScreen.dart';
+import 'package:ds_p2_flutter/gestion_empleados.dart';
+import 'package:ds_p2_flutter/gestion_clientes.dart';
 import 'package:ds_p2_flutter/gestion_stock.dart';
 import 'package:ds_p2_flutter/stock.dart';
 import 'package:ds_p2_flutter/acceso_empleados.dart';

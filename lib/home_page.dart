@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/catalog_screen.dart';
+import 'package:ds_p2_flutter/catalogo.dart';
 import 'package:ds_p2_flutter/acceso_empleados.dart';
 import 'package:ds_p2_flutter/stock.dart';
 

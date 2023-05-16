@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/pantallaFormularioEmpleados.dart';
+import 'package:ds_p2_flutter/formulario_empleados.dart';
 
 class Empleado {
   final String nombre;
@@ -17,6 +17,14 @@ class GestionEmpleadosScreen extends StatefulWidget {
 
   @override
   _GestionEmpleadosScreenState createState() => _GestionEmpleadosScreenState();
+
+  static void eliminarEmpleado(List<Empleado> empleados, Empleado empleado){
+    empleados.remove(empleado);
+  }
+
+  static void addEmpleado(List<Empleado> empleados, Empleado empleado){
+    empleados.add(empleado);
+  }
 }
 
 class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
@@ -36,9 +44,9 @@ class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
   ];
 
   void eliminarEmpleado(Empleado empleado) {
-  setState(() {
-  empleados.remove(empleado);
-  });
+    setState(() {
+    empleados.remove(empleado);
+    });
   }
 
   Future<void> mostrarFormularioNuevoEmpleado() async {

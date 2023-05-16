@@ -1,7 +1,7 @@
 import 'package:ds_p2_flutter/mesa.dart';
-import 'package:ds_p2_flutter/purchase_screen.dart';
+import 'package:ds_p2_flutter/purchase.dart';
 import 'package:flutter/material.dart';
-import 'package:ds_p2_flutter/Cliente.dart';
+import 'package:ds_p2_flutter/cliente.dart';
 import 'package:ds_p2_flutter/factoria_abstracta.dart';
 import 'package:ds_p2_flutter/factoria_muebles.dart';
 import 'package:ds_p2_flutter/silla.dart';
@@ -11,7 +11,7 @@ import 'package:ds_p2_flutter/silla_oficina.dart';
 import 'package:ds_p2_flutter/silla_cocina.dart';
 
 import 'package:ds_p2_flutter/carrito.dart';
-import 'package:ds_p2_flutter/informationScreen.dart';
+import 'package:ds_p2_flutter/informacion.dart';
 import 'package:ds_p2_flutter/stock.dart';
 import 'package:ds_p2_flutter/compra.dart';
 import 'package:fluttertoast/fluttertoast.dart';
