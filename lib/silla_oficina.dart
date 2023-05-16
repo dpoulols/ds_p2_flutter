@@ -1,4 +1,4 @@
-import 'Silla.dart';
+import 'package:ds_p2_flutter/silla.dart';
 
 
 class SillaOficina extends Silla{
@@ -11,7 +11,7 @@ Silla clone(){
 
 
 String toString(){
-  return "Cocina";
+  return "Cocina ";
 }
 
 

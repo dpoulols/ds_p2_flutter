@@ -1,11 +1,16 @@
-import 'Mesa.dart';
-import 'Silla.dart';
-import 'factoriabstracta.dart';
+import 'package:ds_p2_flutter/factoria_abstracta.dart';
+import 'package:ds_p2_flutter/silla.dart';
+import 'package:ds_p2_flutter/mesa.dart';
+
 
 class Cliente {
+  String nombreCliente = "";
   List<Mesa> mesas =[];
   List<Silla> sillas =  [];
 
+  Cliente( String nombre){
+    nombreCliente = nombre;
+  }
 
   void comprar(FactoriaAbstracta  factoria,Mesa mesa,Silla silla, int numMesas, int numSillas){
     for (int i = 0; i < numMesas; i++)

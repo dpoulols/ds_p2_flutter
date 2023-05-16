@@ -1,16 +1,16 @@
-import 'Silla.dart';
+import 'package:ds_p2_flutter/silla.dart';
 
 
 class SillaCocina extends Silla{
 
-
+@override
 Silla clone(){
 
   return SillaCocina.copiaSilla(this);
 
 }
 
-
+@override
 String toString(){
   return "Cocina";
 }
@@ -28,6 +28,7 @@ SillaCocina.copiaSilla(SillaCocina copy){
 
 }
 
+@override
 void establecerMaterial(String material){
   this.material= material;
 }
