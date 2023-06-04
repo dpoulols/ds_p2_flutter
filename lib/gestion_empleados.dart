@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ds_p2_flutter/formulario_empleados.dart';
-
-class Empleado {
-  final String nombre;
-  final String direccion;
-  final String correo;
-  final String numero;
-  final String identificador;
-
-  Empleado({required this.nombre, required this.direccion, required this.correo, required this.numero, required this.identificador});
-}
-
+import 'package:ds_p2_flutter/cliente.dart';
 
 
 class GestionEmpleadosScreen extends StatefulWidget {
@@ -18,11 +8,11 @@ class GestionEmpleadosScreen extends StatefulWidget {
   @override
   _GestionEmpleadosScreenState createState() => _GestionEmpleadosScreenState();
 
-  static void eliminarEmpleado(List<Empleado> empleados, Empleado empleado){
+  static void eliminarEmpleado(List<Cliente> empleados, Cliente empleado){
     empleados.remove(empleado);
   }
 
-  static void addEmpleado(List<Empleado> empleados, Empleado empleado){
+  static void addEmpleado(List<Cliente> empleados, Cliente empleado){
     empleados.add(empleado);
   }
 }
@@ -30,20 +20,15 @@ class GestionEmpleadosScreen extends StatefulWidget {
 class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
 
 
-  List<Empleado> empleados = [
-    Empleado(nombre: 'Alberto López Serrano', direccion: 'Calle Puerta de Orihuela', correo: 'alberto@gmail.com', numero: '678324743', identificador: '1'),
-    Empleado(nombre: 'Lucas Martínez García', direccion: 'Calle Martinez de la Rosa', correo: 'lucas@gmail.com', numero: '726372636', identificador: '2'),
-    Empleado(nombre: 'Laura María López Box', direccion: 'Calle Altamirano', correo: 'laura@gmail.com', numero: '687600218', identificador: '3'),
-    Empleado(nombre: 'Juan José Rojas Valle', direccion: 'Calle José Recuerda', correo: 'juan@gmail.com', numero: '606850972', identificador: '4'),
-    Empleado(nombre: 'Íñigo Sánchez Serrano', direccion: 'Calle Lorca', correo: 'iñigo@gmail.com', numero: '696257835', identificador: '5'),
-    Empleado(nombre: 'Roberto López Cabanes', direccion: 'Calle Valle Inclán', correo: 'roberto@gmail.com', numero: '698521456', identificador: '6'),
-    Empleado(nombre: 'Jorge Piernas Vázquez', direccion: 'Calle Puerta Nueva', correo: 'jorge@gmail.com', numero: '678655589', identificador: '7'),
-    Empleado(nombre: 'Mercedes Bleda Aznar', direccion: 'Calle Canalejas', correo: 'mercedes@gmail.com', numero: '965587542', identificador: '8'),
-    Empleado(nombre: 'Fernando Alcantud Gil', direccion: 'Calle Recogidas', correo: 'fernando@gmail.com', numero: '658632699', identificador: '9'),
+  List<Cliente> empleados = [
+    Cliente('Alberto López Serrano', '12345678', 'alberto@gmail.com', 'Calle Puerta de Orihuela', '1234', 'Empleado' ),
+    Cliente('Lucas Martínez García', '12345678', 'lucas@gmail.com', 'Calle Martinez de la Rosa', '1423', 'Empleado' ),
+    Cliente('Laura María López Box', '12345678', 'laura@gmail.com', 'Calle Altamirano', 'ñoña', 'Empleado' ),
+    Cliente('Juan José Rojas Valle', '12345678', 'juanjo@gmail.com', 'Calle José Recuerda', '1234', 'Empleado' ),
 
   ];
 
-  void eliminarEmpleado(Empleado empleado) {
+  void eliminarEmpleado(Cliente empleado) {
     setState(() {
     empleados.remove(empleado);
     });
@@ -55,20 +40,20 @@ class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
       MaterialPageRoute(builder: (context) => PantallaFormularioEmpleados()),
     );
 
-    if (nuevoEmpleado != null && nuevoEmpleado is Empleado) {
+    if (nuevoEmpleado != null && nuevoEmpleado is Cliente) {
       setState(() {
         empleados.add(nuevoEmpleado);
       });
     }
   }
 
-  void mostrarFormularioEditarEmpleado(Empleado empleado) async {
+  void mostrarFormularioEditarEmpleado(Cliente empleado) async {
     final empleadoModificado = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => PantallaFormularioEmpleados(empleado: empleado)),
     );
 
-    if (empleadoModificado != null && empleadoModificado is Empleado) {
+    if (empleadoModificado != null && empleadoModificado is Cliente) {
       setState(() {
         int index = empleados.indexOf(empleado);
         empleados[index] = empleadoModificado;
@@ -80,7 +65,7 @@ class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
 
 
 
-  void showPopUpDelete(Empleado empleado) {
+  void showPopUpDelete(Cliente empleado) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -107,13 +92,13 @@ class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
     );
   }
 
-  void showPopUpDelete2(Empleado empleado) {
+  void showPopUpDelete2(Cliente empleado) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("El empleado va a ser eliminado del sistema"),
-          content: Text("El emplado ${empleado.nombre} está siendo eliminado del sistema"),
+          content: Text("El emplado ${empleado.nombreCliente} está siendo eliminado del sistema"),
           actions: <Widget>[
             ElevatedButton(
               child: Text("OK"),
@@ -129,7 +114,7 @@ class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
   }
 
 
-  Empleado? nuevoEmpleado;
+  Cliente? nuevoEmpleado;
 
   void _crearNuevoEmpleado() async {
     final resultado = await Navigator.push(
@@ -137,7 +122,7 @@ class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
       MaterialPageRoute(builder: (context) => PantallaFormularioEmpleados()),
     );
 
-    if (resultado != null && resultado is Empleado) {
+    if (resultado != null && resultado is Cliente) {
       setState(() {
         nuevoEmpleado = resultado;
       });
@@ -158,9 +143,9 @@ class _GestionEmpleadosScreenState extends State<GestionEmpleadosScreen> {
           child: ListView.builder(
               itemCount: empleados.length,
               itemBuilder: (context, index) {
-                Empleado empleado = empleados[index];
+                Cliente empleado = empleados[index];
                 return ListTile(
-                  title: Text(empleado.nombre),
+                  title: Text(empleado.nombreCliente),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [

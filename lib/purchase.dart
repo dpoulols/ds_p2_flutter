@@ -29,6 +29,8 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
   _PurchaseScreenState({required this.myCarrito, required this.myStock});
 
 
+
+
   void _makePurchase() {
     setState(() {
       // se ha comprado

@@ -1,3 +1,6 @@
+
+
+
 class Carrito{
   int _sillasOficinaMadera = 0;
   int _sillasOficinaHierro = 0;
@@ -22,6 +25,15 @@ class Carrito{
   double _precioMesa = 30.0;
 
   double _precioTotal = 0;
+
+  Carrito.fromJson(Map<String, dynamic> json):
+        id = json['id'],
+        name=json['name'],
+        team= json['team'],
+        info= json['info'];
+
+
+
 
   int getSillas(String tipo, String material){
     int sillas = 0;

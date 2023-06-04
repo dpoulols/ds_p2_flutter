@@ -1,6 +1,16 @@
+import 'package:ds_p2_flutter/mueble.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 const int _NUM_STOCK = 40;
 
 class Stock{
+
+  static const String _baseAddress='10.0.2.2:3001';
+  static const String _applicationName='/api/v1/';
+
+  int _id = 0;
+  int _stock = 0;
 
   int _sillasOficinaMadera = _NUM_STOCK;
   int _sillasOficinaHierro = _NUM_STOCK;
@@ -17,6 +27,33 @@ class Stock{
   int _mesasCocinaMadera = _NUM_STOCK;
   int _mesasCocinaHierro = _NUM_STOCK;
   int _mesasCocinaPlastico = _NUM_STOCK;
+
+  Map<String, dynamic> toJson(int id, int stock) => {
+    'id':id,
+    'stock':stock,
+  };
+
+  Stock.fromJson(Map<String, dynamic> json):
+        _id = json['id'],
+        _stock=json['stock'];
+
+  static Future<Stock> updateStock({int id=0, int stock=0}) async {
+
+    final http.Response response = await http.put(
+      Uri.http(_baseAddress, "$_applicationName/muebles/$id"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, dynamic>{
+        'id':id,
+        'stock' : stock
+      }));
+    if (response.statusCode == 200)
+    { return Stock.fromJson(jsonDecode(response.body));}
+    else {throw Exception('Failed to update project');}
+  }
+
+
 
 
   void setSillasOficinaMadera(int num){

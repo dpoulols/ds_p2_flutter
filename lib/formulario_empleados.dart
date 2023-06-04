@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ds_p2_flutter/gestion_empleados.dart';
-
+import 'package:ds_p2_flutter/cliente.dart';
 
 
 
 class PantallaFormularioEmpleados extends StatefulWidget {
-  final Empleado? empleado;
+  final Cliente? empleado;
 
   PantallaFormularioEmpleados({this.empleado});
 
@@ -15,46 +15,46 @@ class PantallaFormularioEmpleados extends StatefulWidget {
 
 class _PantallaFormularioEmpleadosState extends State<PantallaFormularioEmpleados> {
   final _formKey = GlobalKey<FormState>();
-  final _nombreController = TextEditingController();
-  final _direccionController = TextEditingController();
+  final _nombreClienteController = TextEditingController();
+  final _domicilioController = TextEditingController();
   final _correoController = TextEditingController();
-  final _numeroController = TextEditingController();
-  final _identificadorController = TextEditingController();
+  final _dniController = TextEditingController();
+  final _passController = TextEditingController();
+
 
   @override
   void initState() {
     super.initState();
 
     if (widget.empleado != null) {
-      _nombreController.text = widget.empleado!.nombre;
-      _direccionController.text = widget.empleado!.direccion;
+      _nombreClienteController.text = widget.empleado!.nombreCliente;
+      _domicilioController.text = widget.empleado!.domicilio;
       _correoController.text = widget.empleado!.correo;
-      _numeroController.text = widget.empleado!.numero;
-      _identificadorController.text = widget.empleado!.direccion;
+      _dniController.text = widget.empleado!.dni;
+      _passController.text = widget.empleado!.pass;
+
     }
   }
 
-
-
-
   @override
   void dispose() {
-    _nombreController.dispose();
-    _direccionController.dispose();
+    _nombreClienteController.dispose();
+    _domicilioController.dispose();
     _correoController.dispose();
-    _numeroController.dispose();
-    _identificadorController.dispose();
+    _dniController.dispose();
+    _passController.dispose();
     super.dispose();
   }
 
 
   void _confirmar() {
-    final empleadoModificado = Empleado(
-      nombre: _nombreController.text,
-      direccion: _direccionController.text,
-      correo: _correoController.text,
-      numero: _numeroController.text,
-      identificador: _identificadorController.text,
+    final empleadoModificado = Cliente(
+      _nombreClienteController.text,
+      _domicilioController.text,
+      _correoController.text,
+      _dniController.text,
+      _passController.text,
+      'Empleado'
     );
 
     Navigator.pop(context, empleadoModificado);
@@ -74,7 +74,7 @@ class _PantallaFormularioEmpleadosState extends State<PantallaFormularioEmpleado
     child: Column(
     children: [
     TextFormField(
-    controller: _nombreController,
+    controller: _nombreClienteController,
     decoration: InputDecoration(labelText: 'Nombre Apellido1 Apellido2'),
     validator: (value) {
     if (value!.isEmpty) {
@@ -84,8 +84,8 @@ class _PantallaFormularioEmpleadosState extends State<PantallaFormularioEmpleado
     },
     ),
     TextFormField(
-      controller: _direccionController,
-      decoration: InputDecoration(labelText: 'Dirección'),
+      controller: _domicilioController,
+      decoration: InputDecoration(labelText: 'Domicilio'),
       validator: (value) {
         if (value!.isEmpty) {
           return 'Por favor, introduce una dirección';
@@ -104,25 +104,26 @@ class _PantallaFormularioEmpleadosState extends State<PantallaFormularioEmpleado
         },
       ),
       TextFormField(
-        controller: _numeroController,
-        decoration: InputDecoration(labelText: 'Número de teléfono'),
+        controller: _dniController,
+        decoration: InputDecoration(labelText: 'DNI'),
         validator: (value) {
           if (value!.isEmpty) {
-            return 'Por favor, introduce un número';
+            return 'Por favor, introduce un dni';
           }
           return null;
         },
       ),
       TextFormField(
-        controller: _identificadorController,
-        decoration: InputDecoration(labelText: 'Identificador'),
+        controller: _passController,
+        decoration: InputDecoration(labelText: 'Pass'),
         validator: (value) {
           if (value!.isEmpty) {
-            return 'Por favor, introduce un identificador';
+            return 'Por favor, introduce un pass';
           }
           return null;
         },
       ),
+
       SizedBox(height: 16),
       ElevatedButton(
         onPressed: _confirmar,
